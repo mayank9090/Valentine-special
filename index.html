@@ -146,7 +146,7 @@
                 <div id="photo-inputs-container">
                     <div class="photo-input-row" style="background:#fff; padding:10px; border-radius:10px; margin-bottom:10px; border:1px solid #eee; position:relative;">
                         <button onclick="this.parentElement.remove()" style="position:absolute; top:5px; right:5px; background:none; border:none; color:#ff4757; font-weight:bold; cursor:pointer; font-size:0.75rem;">✕ Remove</button>
-                        <input type="file" class="photo-file" accept="image/*">
+                        <input type="text" class="photo-url" placeholder="Paste Image Link (URL)">
                         <div style="display:flex; gap:5px; margin-top:8px;">
                             <input type="text" class="photo-date" placeholder="Date" style="width:35%">
                             <input type="text" class="photo-cap" placeholder="Caption" style="width:65%">
@@ -220,10 +220,10 @@
 
         let config = { 
             pName: "Love", uPhone: "", 
-            msg1: "Hamari kahani meri sabse favorite hai... ❤️", 
+            msg1: "Just wanted to say ki tum meri life ki sabse special person ho....❤️", 
             finalMsg: shayaris[0],
             bigQ: "Will you be my Valentine forever? 💍",
-            successMsg: "YAYYY! ❤️\nI love you to the moon and back!",
+            successMsg: "YAYYY! ❤️\n My heart melts every time I hear you say that.... I Love You Too...❤️",
             memories: [
                 {img: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=500", date: "Moment 1", cap: "Where it began..."},
                 {img: "https://images.unsplash.com/photo-1516589174184-c68526671ee6?w=500", date: "Forever", cap: "Together always."}
@@ -250,58 +250,34 @@
             const row = document.createElement('div');
             row.className = "photo-input-row";
             row.style = "background:#fff; padding:10px; border-radius:10px; margin-bottom:10px; border:1px solid #eee; position:relative;";
-            row.innerHTML = `<button onclick="this.parentElement.remove()" style="position:absolute; top:5px; right:5px; background:none; border:none; color:#ff4757; font-weight:bold; cursor:pointer; font-size:0.75rem;">✕ Remove</button><input type="file" class="photo-file" accept="image/*"><div style="display:flex; gap:5px; margin-top:8px;"><input type="text" class="photo-date" placeholder="Date" style="width:35%"><input type="text" class="photo-cap" placeholder="Caption" style="width:65%"></div>`;
+            row.innerHTML = `<button onclick="this.parentElement.remove()" style="position:absolute; top:5px; right:5px; background:none; border:none; color:#ff4757; font-weight:bold; cursor:pointer; font-size:0.75rem;">✕ Remove</button><input type="text" class="photo-url" placeholder="Paste Image Link (URL)"><div style="display:flex; gap:5px; margin-top:8px;"><input type="text" class="photo-date" placeholder="Date" style="width:35%"><input type="text" class="photo-cap" placeholder="Caption" style="width:65%"></div>`;
             container.appendChild(row);
         }
 
-        async function uploadToCloudinary(blob) {
-            const formData = new FormData();
-            formData.append('file', blob);
-            formData.append('upload_preset', 'love_preset');
-            const res = await fetch(`https://api.cloudinary.com/v1_1/dk63y3zia/image/upload`, { method: 'POST', body: formData });
-            const data = await res.json();
-            return data.secure_url;
-        }
-
-        const fastCompress = (file) => new Promise((resolve) => {
-            const reader = new FileReader(); reader.readAsDataURL(file);
-            reader.onload = (e) => {
-                const img = new Image(); img.src = e.target.result;
-                img.onload = () => {
-                    const canvas = document.createElement('canvas'); const ctx = canvas.getContext('2d');
-                    const MAX = 800; let w = img.width, h = img.height;
-                    if (w > h) { if (w > MAX) { h *= MAX / w; w = MAX; } } else { if (h > MAX) { w *= MAX / h; h = MAX; } }
-                    canvas.width = w; canvas.height = h; ctx.drawImage(img, 0, 0, w, h);
-                    canvas.toBlob((blob) => resolve(blob), 'image/jpeg', 0.7);
-                };
-            };
-        });
-
         async function generateLink() {
             const btn = document.querySelector('.share-link-btn');
-            btn.innerText = "Uploading Memories... ❤️";
+            btn.innerText = "Generating... ❤️";
             btn.disabled = true;
 
             config.pName = document.getElementById('pName').value || "My Love";
             config.uPhone = document.getElementById('uPhone').value;
-            // Default Texts
-            config.msg1 = "Hamari kahani meri sabse favorite hai... ❤️";
+            config.msg1 = "Just wanted to say ki tum meri life ki sabse special person ho.... ❤️";
             config.finalMsg = shayaris[Math.floor(Math.random() * shayaris.length)];
             config.bigQ = "Will you be my Valentine forever? 💍";
-            config.successMsg = "YAYYY! ❤️\nI love you to the moon and back!";
+            config.successMsg = "YAYYY! ❤️\n My heart melts every time I hear you say that.... I Love You Too...❤️";
             
-            const fileInputs = document.querySelectorAll('.photo-file');
+            const urlInputs = document.querySelectorAll('.photo-url');
             const dateInputs = document.querySelectorAll('.photo-date');
             const capInputs = document.querySelectorAll('.photo-cap');
             let newMems = [];
 
-            for(let i=0; i<fileInputs.length; i++) {
-                if(fileInputs[i].files[0]) { 
-                    try {
-                        const compressedBlob = await fastCompress(fileInputs[i].files[0]);
-                        const imgUrl = await uploadToCloudinary(compressedBlob); 
-                        newMems.push({img: imgUrl, date: dateInputs[i].value || "Memory", cap: capInputs[i].value || "❤️"});
-                    } catch(err) { console.error("Upload failed"); }
+            for(let i=0; i<urlInputs.length; i++) {
+                if(urlInputs[i].value.trim()) { 
+                    newMems.push({
+                        img: urlInputs[i].value.trim(), 
+                        date: dateInputs[i].value || "Memory", 
+                        cap: capInputs[i].value || "❤️"
+                    });
                 }
             }
             if(newMems.length > 0) config.memories = newMems;
@@ -381,4 +357,4 @@
         }, 700);
     </script>
 </body>
-</html>
+    </html>
