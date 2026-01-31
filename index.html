@@ -282,8 +282,9 @@
             }
             if(newMems.length > 0) config.memories = newMems;
 
+            // Using URL Safe encoding to prevent link breakage
             const storyString = btoa(unescape(encodeURIComponent(JSON.stringify(config))));
-            const url = window.location.origin + window.location.pathname + "?story=" + storyString;
+            const url = window.location.origin + window.location.pathname + "?story=" + encodeURIComponent(storyString);
             
             document.getElementById('share-url-box').innerText = url;
             document.getElementById('share-popup').style.display = 'block';
@@ -357,4 +358,4 @@
         }, 700);
     </script>
 </body>
-    </html>
+</html>
