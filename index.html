@@ -223,7 +223,7 @@
     <script>
         let config = { 
             pName: "Love", uPhone: "", 
-            msg1: "Hamari kahani meri sabse favorite hai...\nAur hamari kahani meri sabse favorite hai. ✨", 
+            msg1: "Hamari kahani meri sabse favorite hai...✨", 
             finalMsg: "Har pal tumne meri duniya ko khubsoorat banaya hai.",
             bigQ: "Will you be my Valentine forever?",
             successMsg: "YAYYY! 🤍\nI love you to the moon and back!",
@@ -249,7 +249,7 @@
 
         function addPhotoField() {
             const container = document.getElementById('photo-inputs-container');
-            if(container.children.length >= 10) return;
+            if(container.children.length >= 5) return;
             const row = document.createElement('div');
             row.style = "background:#fff; padding:10px; border-radius:10px; margin-bottom:10px; border:1px solid #eee;";
             row.innerHTML = `<input type="file" class="photo-file" accept="image/*"><div style="display:flex; gap:5px; margin-top:8px;"><input type="text" class="photo-date" placeholder="Date" style="width:35%"><input type="text" class="photo-cap" placeholder="Caption" style="width:65%"></div>`;
