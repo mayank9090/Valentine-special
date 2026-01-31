@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valentines Special ❤️</title>
+    <title>VALENTINE'S SPECIAL ❤️</title>
+    <link rel="icon" type="image/png" href="https://files.catbox.moe/k3769t.png">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -255,9 +256,41 @@
             container.appendChild(row);
         }
 
-        // --- NEW LOGIC: SINGLE BUTTON HANDLER ---
+        // --- UPDATED CLOUDINARY LOGIC WITH dk63y3zia ---
+        async function uploadToCloudinary(blob) {
+            const formData = new FormData();
+            formData.append('file', blob);
+            formData.append('upload_preset', 'love_preset');
+            const res = await fetch(`https://api.cloudinary.com/v1_1/dk63y3zia/image/upload`, {
+                method: 'POST',
+                body: formData
+            });
+            const data = await res.json();
+            return data.secure_url;
+        }
+
+        // --- NEW FAST COMPRESSION LOGIC (NO CLEANING) ---
+        const fastCompress = (file) => new Promise((resolve) => {
+            const reader = new FileReader(); reader.readAsDataURL(file);
+            reader.onload = (e) => {
+                const img = new Image(); img.src = e.target.result;
+                img.onload = () => {
+                    const canvas = document.createElement('canvas'); const ctx = canvas.getContext('2d');
+                    const MAX = 800; let w = img.width, h = img.height;
+                    if (w > h) { if (w > MAX) { h *= MAX / w; w = MAX; } } else { if (h > MAX) { w *= MAX / h; h = MAX; } }
+                    canvas.width = w; canvas.height = h; ctx.drawImage(img, 0, 0, w, h);
+                    canvas.toBlob((blob) => resolve(blob), 'image/jpeg', 0.7);
+                };
+            };
+        });
+
+        // --- SINGLE BUTTON HANDLER (FINAL) ---
         async function generateLink() {
-            // Step 1: Data Update (Auto Save)
+            const btn = document.querySelector('.share-link-btn');
+            const originalText = btn.innerText;
+            btn.innerText = "Uploading Memories... ❤️";
+            btn.disabled = true;
+
             config.pName = document.getElementById('pName').value || config.pName;
             config.uPhone = document.getElementById('uPhone').value;
             config.msg1 = document.getElementById('msg1').value;
@@ -272,28 +305,27 @@
 
             for(let i=0; i<fileInputs.length; i++) {
                 if(fileInputs[i].files[0]) { 
-                    const b64 = await toBase64(fileInputs[i].files[0]); 
-                    newMems.push({img: b64, date: dateInputs[i].value || "Memory", cap: capInputs[i].value || "❤️"});
+                    try {
+                        const compressedBlob = await fastCompress(fileInputs[i].files[0]);
+                        const imgUrl = await uploadToCloudinary(compressedBlob); 
+                        newMems.push({img: imgUrl, date: dateInputs[i].value || "Memory", cap: capInputs[i].value || "❤️"});
+                    } catch(err) { console.error("Upload failed"); }
                 }
             }
             if(newMems.length > 0) config.memories = newMems;
 
-            // Step 2: Create Link and Show Popup
             const storyString = btoa(unescape(encodeURIComponent(JSON.stringify(config))));
             const url = window.location.origin + window.location.pathname + "?story=" + storyString;
             
             document.getElementById('share-url-box').innerText = url;
             document.getElementById('share-popup').style.display = 'block';
+            btn.innerText = originalText;
+            btn.disabled = false;
             closeSetup();
         }
 
         function copyLink() { navigator.clipboard.writeText(document.getElementById('share-url-box').innerText); alert("Link Copied! ✅"); }
         function shareWA() { window.open("https://api.whatsapp.com/send?text=" + encodeURIComponent("Special for you: " + document.getElementById('share-url-box').innerText)); }
-
-        const toBase64 = file => new Promise((resolve, reject) => {
-            const reader = new FileReader(); reader.readAsDataURL(file);
-            reader.onload = () => resolve(reader.result); reader.onerror = e => reject(e);
-        });
 
         function typeWriter(text, elementId, actionId, speed = 50) {
             let i = 0; const elem = document.getElementById(elementId); const actionElem = document.getElementById(actionId);
@@ -357,4 +389,4 @@
         }, 700);
     </script>
 </body>
-  </html>
+    </html>
