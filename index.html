@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Moments & Memories ✨</title>
+    <title>MOMENTS™ • Celebration Special ✨</title>
     <link rel="icon" type="image/png" href="https://files.catbox.moe/k3769t.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,34 +42,82 @@
             100% { background-position: 100% 100%; }
         }
 
-        /* Animated Music Equalizer Badge */
-        #music-btn {
+        /* Top Brand Header */
+        .app-header {
             position: fixed;
-            top: 20px;
-            right: 20px;
-            background: rgba(15, 15, 20, 0.65);
-            border: 1px solid var(--glass-border);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 64px;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(12, 12, 18, 0.65);
             backdrop-filter: blur(16px);
-            padding: 8px 14px;
+            border-bottom: 1px solid var(--glass-border);
+            z-index: 1000;
+        }
+
+        .brand-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            user-select: none;
+        }
+        .brand-logo {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--accent), #ff7675);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.15rem;
+            box-shadow: 0 4px 14px var(--accent-glow);
+            transition: background 0.5s;
+        }
+        .brand-info {
+            display: flex;
+            flex-direction: column;
+        }
+        .brand-name {
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            color: #fff;
+            line-height: 1.1;
+        }
+        .brand-tagline {
+            font-size: 0.62rem;
+            color: var(--text-muted);
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        /* Integrated Music Equalizer */
+        #music-btn {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--glass-border);
+            padding: 6px 12px;
             border-radius: 50px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 7px;
             cursor: pointer;
-            z-index: 1000;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
-            transition: transform 0.2s, border-color 0.3s;
+            transition: border-color 0.3s, transform 0.2s;
         }
         #music-btn:hover { border-color: var(--accent); }
         #music-btn:active { transform: scale(0.95); }
         .eq-bar {
-            width: 3px; height: 14px; background: var(--accent); border-radius: 2px;
+            width: 3px; height: 13px; background: var(--accent); border-radius: 2px;
             animation: eqPulse 1s ease-in-out infinite alternate;
         }
-        .eq-bar:nth-child(2) { animation-delay: 0.25s; height: 8px; }
-        .eq-bar:nth-child(3) { animation-delay: 0.5s; height: 18px; }
-        .eq-paused .eq-bar { animation: none !important; height: 4px !important; background: #666; }
-        .eq-text { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.5px; color: #fff; }
+        .eq-bar:nth-child(2) { animation-delay: 0.25s; height: 7px; }
+        .eq-bar:nth-child(3) { animation-delay: 0.5s; height: 16px; }
+        .eq-paused .eq-bar { animation: none !important; height: 4px !important; background: #777; }
+        .eq-text { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.5px; color: #fff; }
 
         .content-wrapper {
             flex: 1;
@@ -77,7 +125,7 @@
             justify-content: center;
             align-items: center;
             width: 100%;
-            padding: 24px 16px;
+            padding: 85px 16px 25px 16px; /* Offset for header */
             position: relative;
             z-index: 10;
         }
@@ -137,8 +185,8 @@
         }
         .photo-frame { 
             width: 100%; 
-            height: 330px; 
-            max-height: 48vh;
+            height: 320px; 
+            max-height: 46vh;
             border-radius: 18px; 
             overflow: hidden; 
             position: relative; 
@@ -229,7 +277,7 @@
         }
         .admin-trigger:hover { background: rgba(255,255,255,0.15); color: #fff; }
 
-        /* Proposal Section (Side-by-side, No Overlap) */
+        /* Proposal Section (Fixed: Side by side layout & bounded jump) */
         #proposal-btns {
             position: relative;
             min-height: 90px;
@@ -248,8 +296,8 @@
             color: #222; 
             position: relative;
             user-select: none;
-            z-index: 20;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+            z-index: 150;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
             transition: transform 0.15s ease-out;
         }
 
@@ -341,7 +389,7 @@
         }
         input:focus { border-color: var(--accent); }
 
-        /* Memory Row Card */
+        /* Memory Row Card with High Reliability Upload */
         .memory-row-card {
             background: #fff;
             padding: 12px;
@@ -369,7 +417,7 @@
             background: #f1f5f9;
             border: 1px solid #cbd5e1;
             color: #334155;
-            padding: 6px 14px;
+            padding: 7px 14px;
             border-radius: 8px;
             font-size: 0.76rem;
             font-weight: 600;
@@ -424,14 +472,15 @@
             width: 100%;
             padding: 18px 0;
             text-align: center;
-            background: rgba(0,0,0,0.4);
+            background: rgba(8, 8, 12, 0.7);
             backdrop-filter: blur(12px);
-            border-top: 1px solid rgba(255,255,255,0.05);
-            z-index: 20;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            z-index: 50;
+            position: relative;
         }
         .footer-text {
             font-size: 0.7rem;
-            color: rgba(255, 255, 255, 0.4);
+            color: rgba(255, 255, 255, 0.45);
             letter-spacing: 1.5px;
             font-weight: 600;
         }
@@ -454,16 +503,15 @@
             z-index: 3000;
         }
 
-        /* Toast Notification */
         #toast {
             position: fixed;
             bottom: 30px;
             left: 50%;
             transform: translateX(-50%) translateY(40px);
-            background: rgba(18, 18, 24, 0.92);
+            background: rgba(18, 18, 24, 0.94);
             color: white;
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.18);
             padding: 10px 22px;
             border-radius: 50px;
             font-size: 0.82rem;
@@ -479,20 +527,29 @@
 </head>
 <body>
 
+    <!-- Professional Brand Header -->
+    <header class="app-header">
+        <div class="brand-container">
+            <div class="brand-logo" id="brand-logo-icon">✨</div>
+            <div class="brand-info">
+                <span class="brand-name">MOMENTS™</span>
+                <span class="brand-tagline">SPECIAL STORIES</span>
+            </div>
+        </div>
+        <div id="music-btn" class="eq-paused" onclick="toggleAudio()" title="Soundtrack">
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+            <span class="eq-text" id="eq-status">AUDIO</span>
+        </div>
+    </header>
+
     <div id="toast">Link Copied! ✅</div>
     <canvas id="confetti-canvas"></canvas>
 
     <audio id="myAudio" loop preload="auto">
         <source src="https://image2url.com/r2/default/audio/1769804972813-126816fa-c207-4f45-8133-309e48b02983.mp3" type="audio/mpeg">
     </audio>
-    
-    <!-- Modern Sound Controller -->
-    <div id="music-btn" class="eq-paused" onclick="toggleAudio()" title="Soundtrack">
-        <div class="eq-bar"></div>
-        <div class="eq-bar"></div>
-        <div class="eq-bar"></div>
-        <span class="eq-text" id="eq-status">AUDIO</span>
-    </div>
 
     <div class="content-wrapper">
         
@@ -594,7 +651,7 @@
             </div>
         </div>
 
-        <!-- SCREEN 5: Question & Escaping "No" Button -->
+        <!-- SCREEN 5: Question & Escaping "No" Button (Bounded in Safe Zone) -->
         <div id="proposal-screen" class="screen">
             <p class="typewriter-text" id="proposal-type" style="font-size: 2.25rem;" onclick="skipTypewriter()"></p>
             <div id="proposal-btns">
@@ -618,7 +675,7 @@
 
     <footer class="footer-section">
         <div class="footer-text" id="footer-text">
-            DESIGNED WITH ❤️ • ALL RIGHTS RESERVED
+            MOMENTS™ • CRAFTED WITH ❤️ • ALL RIGHTS RESERVED
         </div>
     </footer>
 
@@ -626,8 +683,8 @@
         // OCCASIONS ENGINE
         const OCCASIONS = {
             valentine: {
-                title: "VALENTINE'S SPECIAL ❤️",
-                icon: "💌",
+                title: "SPECIAL CELEBRATION",
+                icon: "🤍",
                 falling: ['❤️', '💖', '🌹', '✨'],
                 accent: "#ff3366",
                 accentGlow: "rgba(255, 51, 102, 0.45)",
@@ -742,14 +799,15 @@
 
         function applyTheme(occKey) {
             const occ = OCCASIONS[occKey] || OCCASIONS.valentine;
-            document.title = occ.title;
+            document.title = `MOMENTS™ • ${occ.title}`;
             document.documentElement.style.setProperty('--accent', occ.accent);
             document.documentElement.style.setProperty('--accent-glow', occ.accentGlow);
             document.documentElement.style.setProperty('--bg-gradient', occ.gradient);
             document.documentElement.style.setProperty('--card-surface', occ.cardBg);
 
+            document.getElementById('brand-logo-icon').innerText = occ.icon;
             document.getElementById('main-envelope').innerText = occ.icon;
-            document.getElementById('footer-text').innerText = occ.footer;
+            document.getElementById('footer-text').innerText = `MOMENTS™ • ${occ.footer}`;
             document.getElementById('yesBtn').innerText = config.yesBtnText || occ.yesText;
 
             activeFallingIcons = occ.falling;
@@ -800,7 +858,7 @@
             renderSetupRows();
         };
 
-        // Sound Toggle
+        // Sound Controller
         const audio = document.getElementById('myAudio');
         const musicBtn = document.getElementById('music-btn');
         const eqStatus = document.getElementById('eq-status');
@@ -817,7 +875,7 @@
             }
         }
 
-        // Setup Screen Form
+        // Setup Screen
         function openSetup() { 
             document.getElementById('pName').value = config.pName === "My Special One" ? "" : config.pName;
             document.getElementById('uPhone').value = config.uPhone;
@@ -838,7 +896,6 @@
             row.className = "memory-row-card";
             const currentImg = img || "https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=500";
             
-            // STRICT PHOTO SELECTION: accept="image/png, image/jpeg, image/jpg, image/webp, image/gif"
             row.innerHTML = `
                 <button onclick="this.parentElement.remove()" style="position:absolute; top:8px; right:10px; background:none; border:none; color:#ef4444; font-weight:700; cursor:pointer; font-size:0.75rem;">✕ Remove</button>
                 <div class="thumb-preview-box">
@@ -846,12 +903,12 @@
                     <div style="flex:1;">
                         <div style="display:flex; gap:8px; align-items:center; margin-bottom:6px;">
                             <label class="gallery-upload-btn">
-                                🖼️ Choose Photo
+                                📷 Choose Photo
                                 <input type="file" accept="image/png, image/jpeg, image/jpg, image/webp, image/gif" style="display:none;" onchange="handleGalleryUpload(this)">
                             </label>
                             <span class="upload-status" style="font-size:0.75rem; color:#64748b;"></span>
                         </div>
-                        <input type="text" class="photo-url" value="${img}" placeholder="Or paste image link" oninput="this.closest('.memory-row-card').querySelector('.thumb-img').src = this.value">
+                        <input type="text" class="photo-url" value="${img}" placeholder="Or paste image direct URL" oninput="this.closest('.memory-row-card').querySelector('.thumb-img').src = this.value">
                     </div>
                 </div>
                 <div style="display:flex; gap:8px;">
@@ -861,7 +918,7 @@
             container.appendChild(row);
         }
 
-        // Client-side Image Compression
+        // Image Compressor for Instant Upload
         function compressImage(file) {
             return new Promise((resolve) => {
                 const reader = new FileReader();
@@ -870,14 +927,14 @@
                     img.onload = () => {
                         const canvas = document.createElement('canvas');
                         let w = img.width, h = img.height;
-                        const maxW = 900;
+                        const maxW = 850;
                         if (w > maxW) { h = Math.round((h * maxW) / w); w = maxW; }
                         canvas.width = w; canvas.height = h;
                         const ctx = canvas.getContext('2d');
                         ctx.drawImage(img, 0, 0, w, h);
                         canvas.toBlob((blob) => {
                             resolve(new File([blob], "image.jpg", { type: "image/jpeg" }));
-                        }, 'image/jpeg', 0.8);
+                        }, 'image/jpeg', 0.82);
                     };
                     img.src = e.target.result;
                 };
@@ -885,15 +942,14 @@
             });
         }
 
-        // Direct Gallery Upload Handler (Strictly Image Only)
+        // Reliable Image Upload Engine (ImgBB Direct + tmpfiles Fallback)
         async function handleGalleryUpload(input) {
             const file = input.files[0];
             if (!file) return;
 
-            // Strict JavaScript Validation: Only Photos Allowed
             const validMimes = ['image/jpeg', 'image/png', 'image/webp', 'image/gif', 'image/jpg'];
             if (!validMimes.includes(file.type) && !file.type.startsWith('image/')) {
-                alert("⚠️ सिर्फ Photos (JPG, PNG, WEBP) allow हैं!\nVideos या दूसरी files select नहीं की जा सकतीं।");
+                alert("⚠️ सिर्फ Photos (JPG, PNG, WEBP) चुनी जा सकती हैं!");
                 input.value = "";
                 return;
             }
@@ -903,7 +959,7 @@
             const urlInput = card.querySelector('.photo-url');
             const statusSpan = card.querySelector('.upload-status');
 
-            // Show instant local preview
+            // Show instant local thumbnail preview
             const reader = new FileReader();
             reader.onload = (e) => thumb.src = e.target.result;
             reader.readAsDataURL(file);
@@ -913,34 +969,52 @@
 
             try {
                 const compressed = await compressImage(file);
-                const formData = new FormData();
-                formData.append('reqtype', 'fileupload');
-                formData.append('fileToUpload', compressed);
-
-                const res = await fetch('https://corsproxy.io/?url=' + encodeURIComponent('https://catbox.moe/user/api.php'), {
+                
+                // Primary: ImgBB Cloud API (Direct Client-Side Upload)
+                const fd = new FormData();
+                fd.append('image', compressed);
+                
+                const res = await fetch('https://api.imgbb.com/1/upload?key=6d207e02198a847aa98d0a2a901485a5', {
                     method: 'POST',
-                    body: formData
+                    body: fd
                 });
-
-                if (res.ok) {
-                    const uploadedUrl = (await res.text()).trim();
-                    if (uploadedUrl.startsWith('http')) {
-                        urlInput.value = uploadedUrl;
-                        thumb.src = uploadedUrl;
+                
+                const json = await res.json();
+                if (json && json.data && json.data.url) {
+                    urlInput.value = json.data.url;
+                    thumb.src = json.data.url;
+                    statusSpan.innerText = "Uploaded! ✅";
+                    statusSpan.style.color = "#10b981";
+                    return;
+                }
+                throw new Error("ImgBB upload failed");
+            } catch (err) {
+                // Secondary Fallback: tmpfiles API
+                try {
+                    const compressed = await compressImage(file);
+                    const fd = new FormData();
+                    fd.append('file', compressed);
+                    const res2 = await fetch('https://tmpfiles.org/api/v1/upload', {
+                        method: 'POST',
+                        body: fd
+                    });
+                    const json2 = await res2.json();
+                    if (json2 && json2.data && json2.data.url) {
+                        const directUrl = json2.data.url.replace('tmpfiles.org/', 'tmpfiles.org/dl/');
+                        urlInput.value = directUrl;
+                        thumb.src = directUrl;
                         statusSpan.innerText = "Uploaded! ✅";
                         statusSpan.style.color = "#10b981";
                         return;
                     }
-                }
-                throw new Error("Upload failed");
-            } catch (err) {
-                console.warn(err);
-                statusSpan.innerText = "Upload failed. Paste link manually";
+                } catch(e) {}
+
+                statusSpan.innerText = "Failed. Paste image link";
                 statusSpan.style.color = "#ef4444";
             }
         }
 
-        // JSONP Shortener using is.gd
+        // Shortener using is.gd (JSONP)
         function shortenUrl(longUrl) {
             return new Promise((resolve) => {
                 const cbName = 'isgd_cb_' + Math.floor(Math.random() * 10000000);
@@ -1148,7 +1222,7 @@
             document.getElementById('final-letter').style.display = 'none';
             document.getElementById('proposal-screen').style.display = 'block';
             
-            // Clean reset: ensure No button sits neatly side-by-side with Yes initially
+            // Clean side-by-side reset
             const b = document.getElementById('noBtn');
             b.style.position = 'relative';
             b.style.left = 'auto';
@@ -1157,19 +1231,28 @@
             typeWriter(config.bigQ, "proposal-type", "proposal-btns", 45);
         }
 
-        // Runaway "No" Button (escapes smoothly when approached)
+        // Bounded Runaway "No" Button (Never goes under Header or Footer)
         function run(e) {
             if(e) { e.preventDefault(); e.stopPropagation(); }
             const b = document.getElementById('noBtn');
             b.style.position = 'fixed';
+            b.style.zIndex = '150';
             
             const btnW = b.offsetWidth || 100;
             const btnH = b.offsetHeight || 44;
-            const maxX = window.innerWidth - btnW - 30;
-            const maxY = window.innerHeight - btnH - 30;
             
-            const randomX = Math.max(25, Math.floor(Math.random() * maxX));
-            const randomY = Math.max(25, Math.floor(Math.random() * maxY));
+            // Safe Viewport Boundaries
+            const topBoundary = 80;   // Safe distance below Header
+            const bottomBoundary = 90; // Safe distance above Footer
+            
+            const minX = 20;
+            const maxX = Math.max(minX, window.innerWidth - btnW - 25);
+            
+            const minY = topBoundary;
+            const maxY = Math.max(minY, window.innerHeight - bottomBoundary - btnH);
+            
+            const randomX = Math.floor(Math.random() * (maxX - minX + 1)) + minX;
+            const randomY = Math.floor(Math.random() * (maxY - minY + 1)) + minY;
 
             b.style.left = `${randomX}px`;
             b.style.top = `${randomY}px`;
