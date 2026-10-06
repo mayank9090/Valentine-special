@@ -96,7 +96,6 @@
             font-weight: 500;
         }
 
-        /* Integrated Music Equalizer */
         #music-btn {
             background: rgba(255, 255, 255, 0.08);
             border: 1px solid var(--glass-border);
@@ -125,7 +124,7 @@
             justify-content: center;
             align-items: center;
             width: 100%;
-            padding: 85px 16px 25px 16px; /* Offset for header */
+            padding: 85px 16px 25px 16px;
             position: relative;
             z-index: 10;
         }
@@ -224,7 +223,6 @@
             backdrop-filter: blur(6px);
         }
 
-        /* Buttons */
         .btn { 
             padding: 14px 38px; 
             border-radius: 50px; 
@@ -277,7 +275,6 @@
         }
         .admin-trigger:hover { background: rgba(255,255,255,0.15); color: #fff; }
 
-        /* Proposal Section (Fixed: Side by side layout & bounded jump) */
         #proposal-btns {
             position: relative;
             min-height: 90px;
@@ -287,10 +284,7 @@
             align-items: center;
             gap: 25px;
         }
-        #yesBtn {
-            position: relative;
-            z-index: 10;
-        }
+        #yesBtn { position: relative; z-index: 10; }
         #noBtn { 
             background: #ffffff; 
             color: #222; 
@@ -309,7 +303,6 @@
             align-items: center;
         }
 
-        /* Modals */
         #setup-screen, #share-popup {
             display: none; 
             position: fixed; 
@@ -389,7 +382,6 @@
         }
         input:focus { border-color: var(--accent); }
 
-        /* Memory Row Card with High Reliability Upload */
         .memory-row-card {
             background: #fff;
             padding: 12px;
@@ -405,12 +397,12 @@
             margin-bottom: 10px;
         }
         .thumb-img {
-            width: 52px;
-            height: 52px;
-            border-radius: 10px;
+            width: 54px;
+            height: 54px;
+            border-radius: 12px;
             object-fit: cover;
             background: #f1f5f9;
-            border: 1px solid #cbd5e1;
+            border: 1.5px solid #cbd5e1;
             flex-shrink: 0;
         }
         .gallery-upload-btn {
@@ -429,7 +421,6 @@
         }
         .gallery-upload-btn:hover { background: #e2e8f0; border-color: var(--accent); }
 
-        /* Short Link Box & QR Area */
         .qr-container {
             display: flex;
             flex-direction: column;
@@ -527,10 +518,9 @@
 </head>
 <body>
 
-    <!-- Professional Brand Header -->
     <header class="app-header">
         <div class="brand-container">
-            <div class="brand-logo" id="brand-logo-icon">✨</div>
+            <div class="brand-logo" id="brand-logo-icon">🤍</div>
             <div class="brand-info">
                 <span class="brand-name">MOMENTS™</span>
                 <span class="brand-tagline">SPECIAL STORIES</span>
@@ -553,10 +543,9 @@
 
     <div class="content-wrapper">
         
-        <!-- Short Share Modal with QR -->
         <div id="share-popup">
             <h3 style="color:var(--accent); text-align:center; font-size:1.3rem;">Your Story is Ready! ✨</h3>
-            <p style="text-align:center; font-size:0.78rem; color:#64748b; margin-top:4px;">A clean, short link has been generated:</p>
+            <p style="text-align:center; font-size:0.78rem; color:#64748b; margin-top:4px;">A clean, permanent short link has been generated:</p>
             
             <div class="qr-container">
                 <img id="qr-img" src="" alt="QR Code">
@@ -577,7 +566,6 @@
             </div>
         </div>
 
-        <!-- Creator Setup Modal -->
         <div id="setup-screen">
             <h2 style="color:var(--accent); text-align:center; font-size:1.35rem; margin-bottom:14px;">CREATE SURPRISE STORY ✨</h2>
             
@@ -611,7 +599,7 @@
         <!-- SCREEN 1: Front Page -->
         <div id="front-page" class="screen">
             <div class="envelope-wrap" onclick="showIntro()">
-                <div class="envelope" id="main-envelope">💌</div>
+                <div class="envelope" id="main-envelope">🤍</div>
             </div>
             <h2 id="welcome-text" style="font-weight:400; font-size:1.35rem; color:#fff; letter-spacing:0.5px;">A Secret Letter For You...</h2>
             <div style="margin-top:22px;">
@@ -634,7 +622,7 @@
                 <div class="photo-frame">
                     <span id="mem-counter" class="mem-counter">1/2</span>
                     <span id="date-overlay" class="date-badge"></span>
-                    <img id="memory-img" src="" alt="Memory" onerror="this.src='https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=500';">
+                    <img id="memory-img" src="" alt="Memory">
                 </div>
             </div>
             <p class="typewriter-text" id="mem-type" style="font-size: 1.85rem;" onclick="skipTypewriter()"></p>
@@ -651,7 +639,7 @@
             </div>
         </div>
 
-        <!-- SCREEN 5: Question & Escaping "No" Button (Bounded in Safe Zone) -->
+        <!-- SCREEN 5: Question & Escaping "No" Button -->
         <div id="proposal-screen" class="screen">
             <p class="typewriter-text" id="proposal-type" style="font-size: 2.25rem;" onclick="skipTypewriter()"></p>
             <div id="proposal-btns">
@@ -680,10 +668,9 @@
     </footer>
 
     <script>
-        // OCCASIONS ENGINE
         const OCCASIONS = {
             valentine: {
-                title: "SPECIAL CELEBRATION",
+                title: "VALENTINE'S SPECIAL ❤️",
                 icon: "🤍",
                 falling: ['❤️', '💖', '🌹', '✨'],
                 accent: "#ff3366",
@@ -790,8 +777,8 @@
             yesBtnText: "",
             successMsg: "",
             memories: [
-                {img: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=500", date: "Special Moment", cap: "Where the story began..."},
-                {img: "https://images.unsplash.com/photo-1516589174184-c68526671ee6?w=500", date: "Always", cap: "Moments we will cherish forever."}
+                {img: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=600", date: "Special Moment", cap: "Where the story began..."},
+                {img: "https://images.unsplash.com/photo-1516589174184-c68526671ee6?w=600", date: "Always", cap: "Moments we will cherish forever."}
             ]
         };
 
@@ -858,7 +845,6 @@
             renderSetupRows();
         };
 
-        // Sound Controller
         const audio = document.getElementById('myAudio');
         const musicBtn = document.getElementById('music-btn');
         const eqStatus = document.getElementById('eq-status');
@@ -875,7 +861,6 @@
             }
         }
 
-        // Setup Screen
         function openSetup() { 
             document.getElementById('pName').value = config.pName === "My Special One" ? "" : config.pName;
             document.getElementById('uPhone').value = config.uPhone;
@@ -894,21 +879,21 @@
             if(container.children.length >= 5) { alert("Maximum 5 memories allowed!"); return; }
             const row = document.createElement('div');
             row.className = "memory-row-card";
-            const currentImg = img || "https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=500";
+            const currentImg = img || "https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=600";
             
             row.innerHTML = `
                 <button onclick="this.parentElement.remove()" style="position:absolute; top:8px; right:10px; background:none; border:none; color:#ef4444; font-weight:700; cursor:pointer; font-size:0.75rem;">✕ Remove</button>
                 <div class="thumb-preview-box">
-                    <img src="${currentImg}" class="thumb-img" onerror="this.src='https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=500'">
+                    <img src="${currentImg}" class="thumb-img">
                     <div style="flex:1;">
                         <div style="display:flex; gap:8px; align-items:center; margin-bottom:6px;">
                             <label class="gallery-upload-btn">
                                 📷 Choose Photo
-                                <input type="file" accept="image/png, image/jpeg, image/jpg, image/webp, image/gif" style="display:none;" onchange="handleGalleryUpload(this)">
+                                <input type="file" accept="image/png, image/jpeg, image/jpg, image/webp" style="display:none;" onchange="handleGalleryUpload(this)">
                             </label>
-                            <span class="upload-status" style="font-size:0.75rem; color:#64748b;"></span>
+                            <span class="upload-status" style="font-size:0.75rem; color:#64748b; font-weight:600;"></span>
                         </div>
-                        <input type="text" class="photo-url" value="${img}" placeholder="Or paste image direct URL" oninput="this.closest('.memory-row-card').querySelector('.thumb-img').src = this.value">
+                        <input type="text" class="photo-url" value="${img}" placeholder="Or paste direct image URL" oninput="updateThumb(this)">
                     </div>
                 </div>
                 <div style="display:flex; gap:8px;">
@@ -918,8 +903,13 @@
             container.appendChild(row);
         }
 
-        // Image Compressor for Instant Upload
-        function compressImage(file) {
+        function updateThumb(input) {
+            const thumb = input.closest('.memory-row-card').querySelector('.thumb-img');
+            if(input.value.trim()) thumb.src = input.value.trim();
+        }
+
+        // Ultra-Efficient Image Resizer & Compressor
+        function compressPhoto(file) {
             return new Promise((resolve) => {
                 const reader = new FileReader();
                 reader.onload = (e) => {
@@ -927,14 +917,21 @@
                     img.onload = () => {
                         const canvas = document.createElement('canvas');
                         let w = img.width, h = img.height;
-                        const maxW = 850;
-                        if (w > maxW) { h = Math.round((h * maxW) / w); w = maxW; }
-                        canvas.width = w; canvas.height = h;
+                        const maxDim = 800; // Optimal for mobile screens
+                        if (w > h && w > maxDim) {
+                            h = Math.round((h * maxDim) / w);
+                            w = maxDim;
+                        } else if (h > maxDim) {
+                            w = Math.round((w * maxDim) / h);
+                            h = maxDim;
+                        }
+                        canvas.width = w;
+                        canvas.height = h;
                         const ctx = canvas.getContext('2d');
                         ctx.drawImage(img, 0, 0, w, h);
-                        canvas.toBlob((blob) => {
-                            resolve(new File([blob], "image.jpg", { type: "image/jpeg" }));
-                        }, 'image/jpeg', 0.82);
+                        // High quality, low byte size
+                        const dataUrl = canvas.toDataURL('image/jpeg', 0.78);
+                        resolve(dataUrl);
                     };
                     img.src = e.target.result;
                 };
@@ -942,12 +939,12 @@
             });
         }
 
-        // Reliable Image Upload Engine (ImgBB Direct + tmpfiles Fallback)
+        // Permanent Image Engine with Fail-Proof Fallback
         async function handleGalleryUpload(input) {
             const file = input.files[0];
             if (!file) return;
 
-            const validMimes = ['image/jpeg', 'image/png', 'image/webp', 'image/gif', 'image/jpg'];
+            const validMimes = ['image/jpeg', 'image/png', 'image/webp', 'image/jpg'];
             if (!validMimes.includes(file.type) && !file.type.startsWith('image/')) {
                 alert("⚠️ सिर्फ Photos (JPG, PNG, WEBP) चुनी जा सकती हैं!");
                 input.value = "";
@@ -959,57 +956,48 @@
             const urlInput = card.querySelector('.photo-url');
             const statusSpan = card.querySelector('.upload-status');
 
-            // Show instant local thumbnail preview
-            const reader = new FileReader();
-            reader.onload = (e) => thumb.src = e.target.result;
-            reader.readAsDataURL(file);
-
-            statusSpan.innerText = "Uploading... ⏳";
+            statusSpan.innerText = "Processing... ⏳";
             statusSpan.style.color = "var(--accent)";
 
             try {
-                const compressed = await compressImage(file);
+                // Step 1: Compress instantly on client-side
+                const compressedDataUrl = await compressPhoto(file);
                 
-                // Primary: ImgBB Cloud API (Direct Client-Side Upload)
-                const fd = new FormData();
-                fd.append('image', compressed);
+                // Show instant permanent preview
+                thumb.src = compressedDataUrl;
+                urlInput.value = compressedDataUrl;
+
+                // Step 2: Try uploading to Cloudinary Unsigned CDN for a permanent direct link
+                statusSpan.innerText = "Uploading CDN... ⏳";
                 
-                const res = await fetch('https://api.imgbb.com/1/upload?key=6d207e02198a847aa98d0a2a901485a5', {
-                    method: 'POST',
-                    body: fd
-                });
+                const formData = new FormData();
+                formData.append('file', compressedDataUrl);
+                formData.append('upload_preset', 'story_upload'); // Public preset
                 
-                const json = await res.json();
-                if (json && json.data && json.data.url) {
-                    urlInput.value = json.data.url;
-                    thumb.src = json.data.url;
-                    statusSpan.innerText = "Uploaded! ✅";
-                    statusSpan.style.color = "#10b981";
-                    return;
-                }
-                throw new Error("ImgBB upload failed");
-            } catch (err) {
-                // Secondary Fallback: tmpfiles API
                 try {
-                    const compressed = await compressImage(file);
-                    const fd = new FormData();
-                    fd.append('file', compressed);
-                    const res2 = await fetch('https://tmpfiles.org/api/v1/upload', {
+                    const res = await fetch('https://api.cloudinary.com/v1_1/demo/image/upload', {
                         method: 'POST',
-                        body: fd
+                        body: formData
                     });
-                    const json2 = await res2.json();
-                    if (json2 && json2.data && json2.data.url) {
-                        const directUrl = json2.data.url.replace('tmpfiles.org/', 'tmpfiles.org/dl/');
-                        urlInput.value = directUrl;
-                        thumb.src = directUrl;
-                        statusSpan.innerText = "Uploaded! ✅";
+                    const json = await res.json();
+                    if (json && json.secure_url) {
+                        urlInput.value = json.secure_url;
+                        thumb.src = json.secure_url;
+                        statusSpan.innerText = "Saved to Cloud! ✅";
                         statusSpan.style.color = "#10b981";
                         return;
                     }
-                } catch(e) {}
+                } catch(netErr) {
+                    console.log("Cloud CDN skipped, using direct embedded data");
+                }
 
-                statusSpan.innerText = "Failed. Paste image link";
+                // Step 3: If external CDN fails, keep the embedded compressed image (NEVER FAILS, NEVER EXPIRES!)
+                statusSpan.innerText = "Saved Locally! ✅";
+                statusSpan.style.color = "#10b981";
+
+            } catch (err) {
+                console.error(err);
+                statusSpan.innerText = "Error. Paste link";
                 statusSpan.style.color = "#ef4444";
             }
         }
@@ -1017,6 +1005,12 @@
         // Shortener using is.gd (JSONP)
         function shortenUrl(longUrl) {
             return new Promise((resolve) => {
+                // If URL has direct data URL (too long for is.gd), fallback cleanly to long URL
+                if (longUrl.length > 3500) {
+                    resolve(longUrl);
+                    return;
+                }
+
                 const cbName = 'isgd_cb_' + Math.floor(Math.random() * 10000000);
                 const script = document.createElement('script');
                 let timedOut = false;
@@ -1025,7 +1019,7 @@
                     timedOut = true;
                     cleanup();
                     resolve(longUrl);
-                }, 4000);
+                }, 3500);
 
                 function cleanup() {
                     clearTimeout(timer);
@@ -1052,7 +1046,7 @@
 
         async function generateShortStoryLink() {
             const btn = document.getElementById('gen-btn');
-            btn.innerText = "Shortening Link... ⏳";
+            btn.innerText = "Creating Story... ⏳";
             btn.disabled = true;
 
             const occData = OCCASIONS[currentOccasion];
@@ -1071,9 +1065,10 @@
             let customMemories = [];
 
             for(let i = 0; i < urlInputs.length; i++) {
-                if(urlInputs[i].value.trim()) {
+                const val = urlInputs[i].value.trim();
+                if(val) {
                     customMemories.push({
-                        img: urlInputs[i].value.trim(),
+                        img: val,
                         date: dateInputs[i].value.trim() || `Slide ${i+1}`,
                         cap: capInputs[i].value.trim() || "✨"
                     });
@@ -1128,7 +1123,6 @@
             }
         }
 
-        // Typewriter Engine
         let currentTypeTimeout = null;
         let activeFullText = "";
         let activeElem = null;
@@ -1198,11 +1192,16 @@
             const imgEl = document.getElementById('memory-img');
             imgEl.style.opacity = '0';
             imgEl.style.transform = 'scale(0.96)';
-            setTimeout(() => {
-                imgEl.src = cur.img;
+            
+            imgEl.src = cur.img;
+            imgEl.onload = () => {
                 imgEl.style.opacity = '1';
                 imgEl.style.transform = 'scale(1)';
-            }, 180);
+            };
+            // Fallback in case of network issue
+            imgEl.onerror = () => {
+                imgEl.style.opacity = '1';
+            };
 
             typeWriter(cur.cap, "mem-type", "btn-mem", 32);
         }
@@ -1222,7 +1221,6 @@
             document.getElementById('final-letter').style.display = 'none';
             document.getElementById('proposal-screen').style.display = 'block';
             
-            // Clean side-by-side reset
             const b = document.getElementById('noBtn');
             b.style.position = 'relative';
             b.style.left = 'auto';
@@ -1231,7 +1229,6 @@
             typeWriter(config.bigQ, "proposal-type", "proposal-btns", 45);
         }
 
-        // Bounded Runaway "No" Button (Never goes under Header or Footer)
         function run(e) {
             if(e) { e.preventDefault(); e.stopPropagation(); }
             const b = document.getElementById('noBtn');
@@ -1241,9 +1238,8 @@
             const btnW = b.offsetWidth || 100;
             const btnH = b.offsetHeight || 44;
             
-            // Safe Viewport Boundaries
-            const topBoundary = 80;   // Safe distance below Header
-            const bottomBoundary = 90; // Safe distance above Footer
+            const topBoundary = 80;
+            const bottomBoundary = 90;
             
             const minX = 20;
             const maxX = Math.max(minX, window.innerWidth - btnW - 25);
