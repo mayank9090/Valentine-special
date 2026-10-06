@@ -42,7 +42,6 @@
             100% { background-position: 100% 100%; }
         }
 
-        /* Top Brand Header */
         .app-header {
             position: fixed;
             top: 0;
@@ -53,465 +52,134 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(12, 12, 18, 0.65);
+            background: rgba(12, 12, 18, 0.75);
             backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--glass-border);
             z-index: 1000;
         }
 
-        .brand-container {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            user-select: none;
-        }
+        .brand-container { display: flex; align-items: center; gap: 10px; user-select: none; }
         .brand-logo {
-            width: 36px;
-            height: 36px;
-            border-radius: 10px;
+            width: 36px; height: 36px; border-radius: 10px;
             background: linear-gradient(135deg, var(--accent), #ff7675);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.15rem;
-            box-shadow: 0 4px 14px var(--accent-glow);
-            transition: background 0.5s;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.15rem; box-shadow: 0 4px 14px var(--accent-glow);
         }
-        .brand-info {
-            display: flex;
-            flex-direction: column;
-        }
-        .brand-name {
-            font-size: 0.95rem;
-            font-weight: 700;
-            letter-spacing: 1.2px;
-            color: #fff;
-            line-height: 1.1;
-        }
-        .brand-tagline {
-            font-size: 0.62rem;
-            color: var(--text-muted);
-            letter-spacing: 0.8px;
-            text-transform: uppercase;
-            font-weight: 500;
-        }
+        .brand-info { display: flex; flex-direction: column; }
+        .brand-name { font-size: 0.95rem; font-weight: 700; letter-spacing: 1.2px; color: #fff; line-height: 1.1; }
+        .brand-tagline { font-size: 0.62rem; color: var(--text-muted); letter-spacing: 0.8px; text-transform: uppercase; font-weight: 500; }
 
         #music-btn {
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid var(--glass-border);
-            padding: 6px 12px;
-            border-radius: 50px;
-            display: flex;
-            align-items: center;
-            gap: 7px;
-            cursor: pointer;
-            transition: border-color 0.3s, transform 0.2s;
+            background: rgba(255, 255, 255, 0.08); border: 1px solid var(--glass-border);
+            padding: 6px 12px; border-radius: 50px; display: flex; align-items: center; gap: 7px; cursor: pointer;
         }
-        #music-btn:hover { border-color: var(--accent); }
-        #music-btn:active { transform: scale(0.95); }
-        .eq-bar {
-            width: 3px; height: 13px; background: var(--accent); border-radius: 2px;
-            animation: eqPulse 1s ease-in-out infinite alternate;
-        }
+        .eq-bar { width: 3px; height: 13px; background: var(--accent); border-radius: 2px; animation: eqPulse 1s ease-in-out infinite alternate; }
         .eq-bar:nth-child(2) { animation-delay: 0.25s; height: 7px; }
         .eq-bar:nth-child(3) { animation-delay: 0.5s; height: 16px; }
         .eq-paused .eq-bar { animation: none !important; height: 4px !important; background: #777; }
         .eq-text { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.5px; color: #fff; }
 
         .content-wrapper {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            padding: 85px 16px 25px 16px;
-            position: relative;
-            z-index: 10;
+            flex: 1; display: flex; justify-content: center; align-items: center; width: 100%;
+            padding: 85px 16px 25px 16px; position: relative; z-index: 10;
         }
 
-        .screen { 
-            display: none; 
-            text-align: center; 
-            width: 100%; 
-            max-width: 480px; 
-            z-index: 10; 
-            animation: screenIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
+        .screen { display: none; text-align: center; width: 100%; max-width: 480px; z-index: 10; animation: screenIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
         #front-page { display: block; }
 
-        @keyframes screenIn {
-            from { opacity: 0; transform: translateY(18px) scale(0.98); }
-            to { opacity: 1; transform: translateY(0) scale(1); }
-        }
+        @keyframes screenIn { from { opacity: 0; transform: translateY(18px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
 
-        .envelope-wrap {
-            position: relative;
-            display: inline-block;
-            margin-bottom: 20px;
-            cursor: pointer;
-        }
-        .envelope { 
-            font-size: 96px; 
-            filter: drop-shadow(0 15px 30px var(--accent-glow)); 
-            animation: gentleFloat 3.8s infinite ease-in-out; 
-            user-select: none;
-            display: block;
-        }
-        @keyframes gentleFloat { 
-            0%, 100% { transform: translateY(0) rotate(0deg); } 
-            50% { transform: translateY(-16px) rotate(2deg); } 
-        }
+        .envelope-wrap { position: relative; display: inline-block; margin-bottom: 20px; cursor: pointer; }
+        .envelope { font-size: 96px; filter: drop-shadow(0 15px 30px var(--accent-glow)); animation: gentleFloat 3.8s infinite ease-in-out; user-select: none; display: block; }
+        @keyframes gentleFloat { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-16px) rotate(2deg); } }
 
         .typewriter-text { 
-            font-family: 'Dancing Script', cursive; 
-            font-size: 2.3rem; 
-            color: #ffffff; 
-            text-shadow: 0 4px 16px var(--accent-glow); 
-            min-height: 90px; 
-            line-height: 1.35;
-            cursor: pointer;
-            padding: 8px 12px;
+            font-family: 'Dancing Script', cursive; font-size: 2.3rem; color: #ffffff; 
+            text-shadow: 0 4px 16px var(--accent-glow); min-height: 90px; line-height: 1.35; padding: 8px 12px; cursor: pointer;
         }
 
         .photo-card {
-            background: var(--card-surface);
-            border: 1px solid var(--glass-border);
-            backdrop-filter: blur(20px);
-            border-radius: 26px;
-            padding: 12px;
-            box-shadow: 0 25px 60px rgba(0,0,0,0.65);
-            margin-bottom: 20px;
+            background: var(--card-surface); border: 1px solid var(--glass-border);
+            backdrop-filter: blur(20px); border-radius: 26px; padding: 12px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.65); margin-bottom: 20px;
         }
+        
         .photo-frame { 
-            width: 100%; 
-            height: 320px; 
-            max-height: 46vh;
-            border-radius: 18px; 
-            overflow: hidden; 
-            position: relative; 
-            background: #0d0d12;
+            width: 100%; height: 320px; max-height: 46vh; border-radius: 18px; 
+            overflow: hidden; position: relative; 
+            background: #1c111e url('https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=600') center/cover no-repeat;
+            display: flex; align-items: center; justify-content: center;
         }
-        .photo-frame img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
-            transition: opacity 0.4s ease, transform 0.6s ease;
-        }
-        .date-badge { 
-            position: absolute; 
-            top: 12px; 
-            right: 12px; 
-            background: var(--accent); 
-            color: white; 
-            padding: 6px 16px; 
-            border-radius: 50px; 
-            font-size: 0.75rem; 
-            font-weight: 700; 
-            box-shadow: 0 6px 16px rgba(0,0,0,0.4);
-            letter-spacing: 0.4px;
-        }
-        .mem-counter {
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            background: rgba(0,0,0,0.65);
-            color: #fff;
-            padding: 5px 12px;
-            border-radius: 30px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            backdrop-filter: blur(6px);
-        }
+        .photo-frame img { width: 100%; height: 100%; object-fit: cover; opacity: 1; }
+        .date-badge { position: absolute; top: 12px; right: 12px; background: var(--accent); color: white; padding: 6px 16px; border-radius: 50px; font-size: 0.75rem; font-weight: 700; z-index: 5; }
+        .mem-counter { position: absolute; top: 12px; left: 12px; background: rgba(0,0,0,0.65); color: #fff; padding: 5px 12px; border-radius: 30px; font-size: 0.7rem; font-weight: 600; z-index: 5; }
 
         .btn { 
-            padding: 14px 38px; 
-            border-radius: 50px; 
-            border: none; 
-            cursor: pointer; 
-            font-weight: 600; 
-            font-size: 0.95rem;
-            font-family: inherit;
-            transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1); 
-            background: white; 
-            color: #121217; 
-            box-shadow: 0 8px 24px rgba(0,0,0,0.35); 
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
+            padding: 14px 38px; border-radius: 50px; border: none; cursor: pointer; font-weight: 600; font-size: 0.95rem;
+            font-family: inherit; transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1); background: white; color: #121217; 
+            box-shadow: 0 8px 24px rgba(0,0,0,0.35); display: inline-flex; align-items: center; justify-content: center; gap: 8px;
         }
-        .btn:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(255,255,255,0.25); }
-        .btn:active { transform: scale(0.96); }
-
-        .btn-glow {
-            background: var(--accent);
-            color: white;
-            box-shadow: 0 10px 30px var(--accent-glow);
-        }
-        .btn-glow:hover {
-            box-shadow: 0 14px 36px var(--accent-glow);
-        }
-
-        .btn-entry { 
-            opacity: 1 !important; 
-            transform: translateY(0) !important; 
-            pointer-events: auto !important; 
-        }
+        .btn:hover { transform: translateY(-2px); }
+        .btn-glow { background: var(--accent); color: white; box-shadow: 0 10px 30px var(--accent-glow); }
+        .btn-entry { opacity: 1 !important; transform: translateY(0) !important; }
 
         .admin-trigger { 
-            background: var(--glass); 
-            border: 1px solid var(--glass-border); 
-            color: var(--text-muted); 
-            padding: 10px 24px; 
-            font-size: 0.78rem; 
-            font-weight: 500;
-            border-radius: 50px; 
-            cursor: pointer; 
-            margin: 28px auto 0 auto; 
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            transition: 0.3s;
+            background: var(--glass); border: 1px solid var(--glass-border); color: var(--text-muted); 
+            padding: 10px 24px; font-size: 0.78rem; font-weight: 500; border-radius: 50px; cursor: pointer; margin: 28px auto 0 auto;
         }
-        .admin-trigger:hover { background: rgba(255,255,255,0.15); color: #fff; }
 
-        #proposal-btns {
-            position: relative;
-            min-height: 90px;
-            margin-top: 25px;
-            display: none;
-            justify-content: center;
-            align-items: center;
-            gap: 25px;
-        }
+        #proposal-btns { position: relative; min-height: 90px; margin-top: 25px; display: none; justify-content: center; align-items: center; gap: 25px; }
         #yesBtn { position: relative; z-index: 10; }
-        #noBtn { 
-            background: #ffffff; 
-            color: #222; 
-            position: relative;
-            user-select: none;
-            z-index: 150;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-            transition: transform 0.15s ease-out;
-        }
+        #noBtn { background: #ffffff; color: #222; position: relative; z-index: 150; box-shadow: 0 6px 20px rgba(0,0,0,0.3); }
 
-        #final-actions {
-            margin-top: 35px;
-            display: none;
-            flex-direction: column;
-            gap: 14px;
-            align-items: center;
-        }
+        #final-actions { margin-top: 35px; display: none; flex-direction: column; gap: 14px; align-items: center; }
 
         #setup-screen, #share-popup {
-            display: none; 
-            position: fixed; 
-            top: 50%; 
-            left: 50%; 
-            transform: translate(-50%, -50%);
-            background: #ffffff; 
-            color: #1e2022; 
-            padding: 26px 22px; 
-            border-radius: 28px;
-            width: 92%; 
-            max-width: 480px; 
-            z-index: 2000; 
-            box-shadow: 0 35px 90px rgba(0, 0, 0, 0.75);
-            animation: modalPop 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            background: #ffffff; color: #1e2022; padding: 26px 22px; border-radius: 28px;
+            width: 92%; max-width: 480px; z-index: 2000; box-shadow: 0 35px 90px rgba(0, 0, 0, 0.75);
         }
         #setup-screen { max-height: 86vh; overflow-y: auto; }
-        
-        @keyframes modalPop {
-            from { opacity: 0; transform: translate(-50%, -46%) scale(0.95); }
-            to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-        }
 
-        .chip-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
-            margin-top: 8px;
-            margin-bottom: 4px;
-        }
+        .chip-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 8px 0 4px 0; }
         .chip-btn {
-            background: #f1f3f6;
-            border: 1.5px solid transparent;
-            padding: 9px 6px;
-            border-radius: 12px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: #4b5563;
-            cursor: pointer;
-            text-align: center;
-            transition: all 0.2s;
-            font-family: inherit;
+            background: #f1f3f6; border: 1.5px solid transparent; padding: 9px 6px; border-radius: 12px;
+            font-size: 0.75rem; font-weight: 600; color: #4b5563; cursor: pointer; text-align: center;
         }
-        .chip-btn.active {
-            background: #fff;
-            border-color: var(--accent);
-            color: var(--accent);
-            box-shadow: 0 4px 14px var(--accent-glow);
-        }
+        .chip-btn.active { background: #fff; border-color: var(--accent); color: var(--accent); }
 
-        .form-section { 
-            background: #f8fafc; 
-            padding: 16px; 
-            border-radius: 18px; 
-            margin-bottom: 16px; 
-            border: 1px solid #edf2f7; 
-        }
-        .section-title { 
-            font-size: 0.72rem; 
-            font-weight: 700; 
-            color: #94a3b8; 
-            margin-bottom: 10px; 
-            text-transform: uppercase; 
-            letter-spacing: 1px; 
-        }
+        .form-section { background: #f8fafc; padding: 16px; border-radius: 18px; margin-bottom: 16px; border: 1px solid #edf2f7; }
+        .section-title { font-size: 0.72rem; font-weight: 700; color: #94a3b8; margin-bottom: 10px; text-transform: uppercase; }
         .input-group { margin-bottom: 12px; }
         .input-group label { display: block; font-size: 0.75rem; font-weight: 600; color: #475569; margin-bottom: 5px; }
-        input { 
-            width: 100%; 
-            padding: 11px 14px; 
-            border: 1.5px solid #e2e8f0; 
-            border-radius: 12px; 
-            font-family: inherit; 
-            font-size: 0.88rem; 
-            outline: none; 
-            transition: border-color 0.2s; 
-        }
-        input:focus { border-color: var(--accent); }
+        input { width: 100%; padding: 11px 14px; border: 1.5px solid #e2e8f0; border-radius: 12px; font-size: 0.88rem; outline: none; }
 
-        .memory-row-card {
-            background: #fff;
-            padding: 12px;
-            border-radius: 16px;
-            margin-bottom: 12px;
-            border: 1px solid #e2e8f0;
-            position: relative;
-        }
-        .thumb-preview-box {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 10px;
-        }
-        .thumb-img {
-            width: 54px;
-            height: 54px;
-            border-radius: 12px;
-            object-fit: cover;
-            background: #f1f5f9;
-            border: 1.5px solid #cbd5e1;
-            flex-shrink: 0;
-        }
+        .memory-row-card { background: #fff; padding: 12px; border-radius: 16px; margin-bottom: 12px; border: 1px solid #e2e8f0; position: relative; }
+        .thumb-preview-box { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+        .thumb-img { width: 56px; height: 56px; border-radius: 12px; object-fit: cover; background: #f1f5f9; border: 1.5px solid #cbd5e1; flex-shrink: 0; }
         .gallery-upload-btn {
-            background: #f1f5f9;
-            border: 1px solid #cbd5e1;
-            color: #334155;
-            padding: 7px 14px;
-            border-radius: 8px;
-            font-size: 0.76rem;
-            font-weight: 600;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            transition: all 0.2s;
+            background: #f1f5f9; border: 1px solid #cbd5e1; color: #334155; padding: 7px 14px;
+            border-radius: 8px; font-size: 0.76rem; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;
         }
-        .gallery-upload-btn:hover { background: #e2e8f0; border-color: var(--accent); }
 
-        .qr-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 16px 0 12px 0;
-            padding: 14px;
-            background: #f8fafc;
-            border-radius: 16px;
-        }
-        #qr-img {
-            width: 140px;
-            height: 140px;
-            border-radius: 10px;
-            background: white;
-            padding: 5px;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.06);
-            margin-bottom: 10px;
-        }
+        .qr-container { display: flex; flex-direction: column; align-items: center; margin: 16px 0 12px 0; padding: 14px; background: #f8fafc; border-radius: 16px; }
+        #qr-img { width: 140px; height: 140px; border-radius: 10px; background: white; padding: 5px; margin-bottom: 10px; }
         .short-url-pill {
-            display: flex;
-            align-items: center;
-            background: #fff;
-            border: 1.5px solid #e2e8f0;
-            border-radius: 50px;
-            padding: 6px 14px;
-            width: 100%;
-            justify-content: space-between;
-            font-size: 0.82rem;
-            font-weight: 600;
-            color: #1e293b;
-        }
-        .short-url-text {
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            margin-right: 8px;
+            display: flex; align-items: center; background: #fff; border: 1.5px solid #e2e8f0;
+            border-radius: 50px; padding: 6px 14px; width: 100%; justify-content: space-between; font-size: 0.82rem; font-weight: 600;
         }
 
-        .footer-section {
-            width: 100%;
-            padding: 18px 0;
-            text-align: center;
-            background: rgba(8, 8, 12, 0.7);
-            backdrop-filter: blur(12px);
-            border-top: 1px solid rgba(255,255,255,0.06);
-            z-index: 50;
-            position: relative;
-        }
-        .footer-text {
-            font-size: 0.7rem;
-            color: rgba(255, 255, 255, 0.45);
-            letter-spacing: 1.5px;
-            font-weight: 600;
-        }
+        .footer-section { width: 100%; padding: 18px 0; text-align: center; background: rgba(8, 8, 12, 0.7); backdrop-filter: blur(12px); border-top: 1px solid rgba(255,255,255,0.06); }
+        .footer-text { font-size: 0.7rem; color: rgba(255, 255, 255, 0.45); letter-spacing: 1.5px; font-weight: 600; }
 
-        .falling-item { 
-            position: fixed; 
-            top: -50px; 
-            pointer-events: none; 
-            z-index: 1; 
-            user-select: none;
-            animation: fall linear forwards; 
-        }
+        .falling-item { position: fixed; top: -50px; pointer-events: none; z-index: 1; user-select: none; animation: fall linear forwards; }
         @keyframes fall { to { transform: translateY(115vh) rotate(360deg); } }
 
-        #confetti-canvas {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100vw; height: 100vh;
-            pointer-events: none;
-            z-index: 3000;
-        }
-
+        #confetti-canvas { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 3000; }
         #toast {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%) translateY(40px);
-            background: rgba(18, 18, 24, 0.94);
-            color: white;
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255,255,255,0.18);
-            padding: 10px 22px;
-            border-radius: 50px;
-            font-size: 0.82rem;
-            font-weight: 600;
-            z-index: 9999;
-            opacity: 0;
-            pointer-events: none;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(40px);
+            background: rgba(18, 18, 24, 0.94); color: white; padding: 10px 22px; border-radius: 50px;
+            font-size: 0.82rem; font-weight: 600; z-index: 9999; opacity: 0; transition: all 0.3s;
         }
         #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
     </style>
@@ -520,7 +188,7 @@
 
     <header class="app-header">
         <div class="brand-container">
-            <div class="brand-logo" id="brand-logo-icon">🤍</div>
+            <div class="brand-logo" id="brand-logo-icon">✨</div>
             <div class="brand-info">
                 <span class="brand-name">MOMENTS™</span>
                 <span class="brand-tagline">SPECIAL STORIES</span>
@@ -542,33 +210,25 @@
     </audio>
 
     <div class="content-wrapper">
-        
         <div id="share-popup">
             <h3 style="color:var(--accent); text-align:center; font-size:1.3rem;">Your Story is Ready! ✨</h3>
             <p style="text-align:center; font-size:0.78rem; color:#64748b; margin-top:4px;">A clean, permanent short link has been generated:</p>
-            
             <div class="qr-container">
                 <img id="qr-img" src="" alt="QR Code">
                 <div class="short-url-pill">
-                    <span class="short-url-text" id="short-url-box">Generating...</span>
-                    <button onclick="copyLink()" style="background:none; border:none; color:var(--accent); font-weight:700; cursor:pointer; font-size:0.75rem;">COPY</button>
+                    <span id="short-url-box" style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap; margin-right:8px;">Generating...</span>
+                    <button onclick="copyLink()" style="background:none; border:none; color:var(--accent); font-weight:700; cursor:pointer;">COPY</button>
                 </div>
             </div>
-
             <div style="display:flex; gap:10px;">
-                <button class="btn btn-glow" style="flex:1; padding:12px; font-size:0.85rem;" onclick="copyLink()">📋 Copy Link</button>
-                <button class="btn" style="flex:1; padding:12px; background:#25D366; color:white; font-size:0.85rem;" onclick="shareWA()">💬 WhatsApp</button>
+                <button class="btn btn-glow" style="flex:1; padding:12px;" onclick="copyLink()">📋 Copy Link</button>
+                <button class="btn" style="flex:1; padding:12px; background:#25D366; color:white;" onclick="shareWA()">💬 WhatsApp</button>
             </div>
-            
-            <div style="display:flex; gap:10px; margin-top:10px;">
-                <button class="btn" id="native-share-btn" style="flex:1; padding:10px; background:#f1f5f9; color:#334155; font-size:0.8rem;" onclick="shareNative()">🔗 Share Anywhere</button>
-                <button onclick="document.getElementById('share-popup').style.display='none'" style="flex:1; background:none; border:none; color:#94a3b8; cursor:pointer; font-size:0.8rem;">Close Window</button>
-            </div>
+            <button onclick="document.getElementById('share-popup').style.display='none'" style="margin-top:12px; background:none; border:none; color:#94a3b8; cursor:pointer; width:100%;">Close Window</button>
         </div>
 
         <div id="setup-screen">
             <h2 style="color:var(--accent); text-align:center; font-size:1.35rem; margin-bottom:14px;">CREATE SURPRISE STORY ✨</h2>
-            
             <div class="form-section">
                 <div class="section-title">Select Occasion Theme</div>
                 <div class="chip-grid">
@@ -579,44 +239,35 @@
                     <div class="chip-btn" onclick="setOccasion('festival', this)">🪔 Festival</div>
                 </div>
             </div>
-
             <div class="form-section">
                 <div class="section-title">Recipient Information</div>
-                <div class="input-group"><label>Special Person's Name</label><input type="text" id="pName" placeholder="e.g. My Love, Simran, Rahul"></div>
+                <div class="input-group"><label>Special Person's Name</label><input type="text" id="pName" placeholder="e.g. My Love, Simran"></div>
                 <div class="input-group"><label>Your Phone No. (For Direct Call Button)</label><input type="tel" id="uPhone" placeholder="e.g. +919876543210"></div>
             </div>
-
             <div class="form-section">
                 <div class="section-title">Memories & Pictures (Max 5)</div>
                 <div id="photo-inputs-container"></div>
-                <button onclick="addPhotoField()" style="background:none; border:1.5px dashed #cbd5e1; color:#475569; width:100%; padding:10px; border-radius:12px; cursor:pointer; font-size:0.8rem; font-weight:600; margin-top:6px;">+ Add Another Photo Slide</button>
+                <button onclick="addPhotoField()" style="background:none; border:1.5px dashed #cbd5e1; color:#475569; width:100%; padding:10px; border-radius:12px; cursor:pointer; font-size:0.8rem; font-weight:600;">+ Add Another Photo Slide</button>
             </div>
-
-            <button class="btn btn-glow" id="gen-btn" style="width:100%; padding:14px; border-radius:14px; font-size:0.95rem;" onclick="generateShortStoryLink()">Generate Short Link 🔗</button>
-            <button onclick="closeSetup()" style="background:none; border:none; color:#94a3b8; margin-top:12px; cursor:pointer; width:100%; font-size:0.8rem;">Cancel</button>
+            <button class="btn btn-glow" id="gen-btn" style="width:100%; padding:14px;" onclick="generateShortStoryLink()">Generate Short Link 🔗</button>
+            <button onclick="closeSetup()" style="background:none; border:none; color:#94a3b8; margin-top:12px; cursor:pointer; width:100%;">Cancel</button>
         </div>
 
-        <!-- SCREEN 1: Front Page -->
+        <!-- SCREEN 1 -->
         <div id="front-page" class="screen">
-            <div class="envelope-wrap" onclick="showIntro()">
-                <div class="envelope" id="main-envelope">🤍</div>
-            </div>
-            <h2 id="welcome-text" style="font-weight:400; font-size:1.35rem; color:#fff; letter-spacing:0.5px;">A Secret Letter For You...</h2>
-            <div style="margin-top:22px;">
-                <button class="btn btn-glow btn-entry" id="unlock-btn" onclick="showIntro()">Open Surprise ✨</button>
-            </div>
+            <div class="envelope-wrap" onclick="showIntro()"><div class="envelope" id="main-envelope">💌</div></div>
+            <h2 id="welcome-text" style="font-weight:400; font-size:1.35rem; color:#fff;">A Secret Letter For You...</h2>
+            <div style="margin-top:22px;"><button class="btn btn-glow btn-entry" onclick="showIntro()">Open Surprise ✨</button></div>
             <button class="admin-trigger" onclick="openSetup()">Create Your Own Short Story ✏️</button>
         </div>
 
-        <!-- SCREEN 2: Opening Letter -->
+        <!-- SCREEN 2 -->
         <div id="message-screen" class="screen">
             <p class="typewriter-text" id="intro-type" onclick="skipTypewriter()"></p>
-            <div style="margin-top: 25px;">
-                <button id="btn-intro" class="btn btn-glow" style="display:none;" onclick="startMemories()">See Our Journey ✨</button>
-            </div>
+            <div style="margin-top: 25px;"><button id="btn-intro" class="btn btn-glow" style="display:none;" onclick="startMemories()">See Our Journey ✨</button></div>
         </div>
 
-        <!-- SCREEN 3: Interactive Memories Carousel -->
+        <!-- SCREEN 3 -->
         <div id="memories-screen" class="screen">
             <div class="photo-card">
                 <div class="photo-frame">
@@ -626,20 +277,16 @@
                 </div>
             </div>
             <p class="typewriter-text" id="mem-type" style="font-size: 1.85rem;" onclick="skipTypewriter()"></p>
-            <div style="margin-top:16px;">
-                <button id="btn-mem" class="btn btn-glow" style="display:none;" onclick="nextMem()">Next Memory →</button>
-            </div>
+            <div style="margin-top:16px;"><button id="btn-mem" class="btn btn-glow" style="display:none;" onclick="nextMem()">Next Memory →</button></div>
         </div>
 
-        <!-- SCREEN 4: Deep Shayari/Letter -->
+        <!-- SCREEN 4 -->
         <div id="final-letter" class="screen">
             <p class="typewriter-text" id="letter-type" style="font-size: 2rem;" onclick="skipTypewriter()"></p>
-            <div style="margin-top: 25px;">
-                <button id="btn-letter" class="btn btn-glow" style="display:none;" onclick="showProposal()">A Small Question For You... 🌹</button>
-            </div>
+            <div style="margin-top: 25px;"><button id="btn-letter" class="btn btn-glow" style="display:none;" onclick="showProposal()">A Small Question For You... 🌹</button></div>
         </div>
 
-        <!-- SCREEN 5: Question & Escaping "No" Button -->
+        <!-- SCREEN 5 -->
         <div id="proposal-screen" class="screen">
             <p class="typewriter-text" id="proposal-type" style="font-size: 2.25rem;" onclick="skipTypewriter()"></p>
             <div id="proposal-btns">
@@ -648,137 +295,82 @@
             </div>
         </div>
 
-        <!-- SCREEN 6: Grand Finale -->
+        <!-- SCREEN 6 -->
         <div id="success-screen" class="screen">
             <p class="typewriter-text" id="success-type" style="font-size: 2.3rem;" onclick="skipTypewriter()"></p>
             <div id="final-actions">
                 <a id="call-link" href="#" style="text-decoration:none; width:100%; max-width:270px;">
-                    <button class="btn" style="background:#25D366; color:white; width:100%; font-size:1rem; box-shadow: 0 8px 25px rgba(37,211,102,0.4);">📞 Call Me Right Now 🤍</button>
+                    <button class="btn" style="background:#25D366; color:white; width:100%; font-size:1rem;">📞 Call Me Right Now 🤍</button>
                 </a>
                 <button class="btn" style="width:100%; max-width:270px;" onclick="window.location.href=window.location.origin + window.location.pathname">✨ Create Another Story</button>
             </div>
         </div>
-
     </div>
 
     <footer class="footer-section">
-        <div class="footer-text" id="footer-text">
-            MOMENTS™ • CRAFTED WITH ❤️ • ALL RIGHTS RESERVED
-        </div>
+        <div class="footer-text" id="footer-text">MOMENTS™ • CRAFTED WITH ❤️ • ALL RIGHTS RESERVED</div>
     </footer>
 
     <script>
+        const fallbackPhotos = [
+            "https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=600",
+            "https://images.unsplash.com/photo-1516589174184-c68526671ee6?w=600"
+        ];
+
         const OCCASIONS = {
             valentine: {
-                title: "VALENTINE'S SPECIAL ❤️",
-                icon: "🤍",
-                falling: ['❤️', '💖', '🌹', '✨'],
-                accent: "#ff3366",
-                accentGlow: "rgba(255, 51, 102, 0.45)",
+                title: "VALENTINE'S SPECIAL ❤️", icon: "💌", falling: ['❤️', '💖', '🌹', '✨'],
+                accent: "#ff3366", accentGlow: "rgba(255, 51, 102, 0.45)",
                 gradient: "radial-gradient(circle at 50% 15%, #32000c, #130006 50%, #050508 100%)",
-                cardBg: "rgba(22, 14, 20, 0.8)",
-                intro: "Just wanted to remind you... you are the most special person in my whole life! ❤️",
-                shayaris: [
-                    "Mohabbat ki kashish toh dekho, har lamha tumhare hi khayal mein guzarta hai. ✨",
-                    "Tumhari muskurahat hi meri zindagi ka sukoon hai, aur tumhara saath meri sabse badi khwahish. ❤️",
-                    "Meri duniya, mera jahan, mera sukoon... sab tum hi toh ho. ✨"
-                ],
-                question: "Will you be my Valentine forever? 💍",
-                yesText: "YES! 💍",
-                success: "YAYYY! ❤️\nMy heart melts every time I hear you say that... I Love You Forever! 🌹",
-                footer: "MADE WITH ❤️ FOR MY VALENTINE"
+                cardBg: "rgba(22, 14, 20, 0.8)", intro: "Just wanted to remind you... you are the most special person in my whole life! ❤️",
+                shayaris: ["Mohabbat ki kashish toh dekho, har lamha tumhare hi khayal mein guzarta hai. ✨"],
+                question: "Will you be my Valentine forever? 💍", yesText: "YES! 💍",
+                success: "YAYYY! ❤️\nMy heart melts every time I hear you say that... I Love You Forever! 🌹", footer: "MADE WITH ❤️ FOR MY VALENTINE"
             },
             birthday: {
-                title: "HAPPY BIRTHDAY 🎂",
-                icon: "🎁",
-                falling: ['🎂', '🎈', '🎁', '✨', '🥳'],
-                accent: "#ff9f43",
-                accentGlow: "rgba(255, 159, 67, 0.45)",
+                title: "HAPPY BIRTHDAY 🎂", icon: "🎁", falling: ['🎂', '🎈', '🎁', '✨', '🥳'],
+                accent: "#ff9f43", accentGlow: "rgba(255, 159, 67, 0.45)",
                 gradient: "radial-gradient(circle at 50% 15%, #2a0b3b, #12041c 50%, #06010a 100%)",
-                cardBg: "rgba(25, 15, 35, 0.8)",
-                intro: "Today is the most wonderful day because the world was blessed with YOU! 🎂✨",
-                shayaris: [
-                    "Khuda kare har din tumhara khushiyon se bhara ho, aur har saal tum aise hi muskurate raho! 🎈",
-                    "Tumhari har dua qubool ho, aur zindagi ka har lamha ek khoobsurat tohfa ban jaye! ✨",
-                    "Zindagi ke har mod par kamyabi tumhare kadam choome... Happy Birthday! 🥳"
-                ],
-                question: "Are you ready for your grand Birthday treat and surprise? 🎂",
-                yesText: "YESSS! 🥳",
-                success: "WOOHOO! 🎉\nWishing you a very Happy Birthday! May your day be filled with lots of cake, smiles & love! 🎂🎁",
-                footer: "CELEBRATING A VERY SPECIAL BIRTHDAY 🎂"
+                cardBg: "rgba(25, 15, 35, 0.8)", intro: "Today is the most wonderful day because the world was blessed with YOU! 🎂✨",
+                shayaris: ["Khuda kare har din tumhara khushiyon se bhara ho! 🎈"],
+                question: "Are you ready for your grand Birthday treat and surprise? 🎂", yesText: "YESSS! 🥳",
+                success: "WOOHOO! 🎉\nWishing you a very Happy Birthday! 🎂🎁", footer: "CELEBRATING A VERY SPECIAL BIRTHDAY 🎂"
             },
             anniversary: {
-                title: "HAPPY ANNIVERSARY 🥂",
-                icon: "🥂",
-                falling: ['🥂', '💖', '💍', '✨', '🌸'],
-                accent: "#e1b12c",
-                accentGlow: "rgba(225, 177, 44, 0.45)",
+                title: "HAPPY ANNIVERSARY 🥂", icon: "🥂", falling: ['🥂', '💖', '💍', '✨', '🌸'],
+                accent: "#e1b12c", accentGlow: "rgba(225, 177, 44, 0.45)",
                 gradient: "radial-gradient(circle at 50% 15%, #2a2200, #120e00 50%, #050505 100%)",
-                cardBg: "rgba(25, 23, 10, 0.8)",
-                intro: "Celebrating another year of laughter, growth and endless memories together... 🥂✨",
-                shayaris: [
-                    "Waqt badalta hai par tumhare liye mera pyaar har beette din ke saath aur gehra hota jata hai. 💖",
-                    "Haath thaam kar chalte rahe yunhi, zindagi ki har manzil aasan lagti hai tumhare saath. ✨",
-                    "Happy Anniversary my love! Together is my favorite place to be. 🥂"
-                ],
-                question: "Will you promise to walk by my side for 100 more years? 💍",
-                yesText: "ALWAYS! ❤️",
-                success: "CHEERS TO US! 🥂\nThank you for making my life so incredibly beautiful. Happy Anniversary! 🌸✨",
-                footer: "CELEBRATING OUR BEAUTIFUL JOURNEY 🥂"
+                cardBg: "rgba(25, 23, 10, 0.8)", intro: "Celebrating another year of beautiful memories together... 🥂✨",
+                shayaris: ["Waqt badalta hai par tumhare liye mera pyaar har din gehra hota jata hai. 💖"],
+                question: "Will you promise to walk by my side for 100 more years? 💍", yesText: "ALWAYS! ❤️",
+                success: "CHEERS TO US! 🥂\nHappy Anniversary! 🌸✨", footer: "CELEBRATING OUR BEAUTIFUL JOURNEY 🥂"
             },
             marriage: {
-                title: "FOREVER & ALWAYS 💍",
-                icon: "💍",
-                falling: ['💍', '👰', '🤵', '💐', '✨'],
-                accent: "#e056fd",
-                accentGlow: "rgba(224, 86, 253, 0.45)",
+                title: "FOREVER & ALWAYS 💍", icon: "💍", falling: ['💍', '👰', '🤵', '💐', '✨'],
+                accent: "#e056fd", accentGlow: "rgba(224, 86, 253, 0.45)",
                 gradient: "radial-gradient(circle at 50% 15%, #350026, #160010 50%, #060005 100%)",
-                cardBg: "rgba(30, 10, 25, 0.8)",
-                intro: "From the very moment I met you, my heart whispered: 'Here is your forever'... 💫",
-                shayaris: [
-                    "Kismat wale hote hain wo jinke naseeb mein unka pyaar hota hai... aur tum meri kismat ho. 💍",
-                    "Har janam mein sirf tumhara saath chahiye, bas yahi ek khwahish rab se maangi hai. 💐",
-                    "Do dilon ka safar, ab ek khoobsurat daastaan banne ja raha hai... 🤍"
-                ],
-                question: "Will you marry me and make me the happiest person in the universe? 💍",
-                yesText: "YES, I WILL! 💍",
-                success: "MY HEART IS YOURS FOREVER! 💍\nI promise to love you, cherish you, and hold your hand through everything! 🤍✨",
-                footer: "A PROMISE FOR A LIFETIME 💍"
+                cardBg: "rgba(30, 10, 25, 0.8)", intro: "From the very moment I met you, my heart whispered: 'Here is your forever'... 💫",
+                shayaris: ["Har janam mein sirf tumhara saath chahiye... 💐"],
+                question: "Will you marry me and make me the happiest person in the universe? 💍", yesText: "YES, I WILL! 💍",
+                success: "MY HEART IS YOURS FOREVER! 💍\nI promise to love you always! 🤍✨", footer: "A PROMISE FOR A LIFETIME 💍"
             },
             festival: {
-                title: "FESTIVE GREETINGS 🪔",
-                icon: "🪔",
-                falling: ['🪔', '✨', '🎉', '🎆', '🌟'],
-                accent: "#e67e22",
-                accentGlow: "rgba(230, 126, 34, 0.45)",
+                title: "FESTIVE GREETINGS 🪔", icon: "🪔", falling: ['🪔', '✨', '🎉', '🎆', '🌟'],
+                accent: "#e67e22", accentGlow: "rgba(230, 126, 34, 0.45)",
                 gradient: "radial-gradient(circle at 50% 15%, #3a1a00, #160900 50%, #070300 100%)",
-                cardBg: "rgba(30, 18, 5, 0.8)",
-                intro: "Sending you heartfelt festive wishes wrapped in joy, light, and warmest blessings! 🪔✨",
-                shayaris: [
-                    "Is tyohar par aapke ghar khushiyon ki roshni ho, aur har lamha muskurahaton se bhara rahe! 🪔",
-                    "Umeedon ke diye jalein, khushiyon ka sansar mile... Is tyohar par aapko sabse pyara uphaar mile! ✨",
-                    "Aapki aur aapke pariwar ki zindagi mein hamesha barkat aur sukoon bana rahe! 🎉"
-                ],
-                question: "Ready to celebrate this festival together with lots of sweets and joy? 🎉",
-                yesText: "LETS CELEBRATE! 🪔",
-                success: "HAPPY CELEBRATIONS! ✨\nWishing you and your family immense prosperity, peace, and endless joy! 🪔🎉",
-                footer: "WISHING YOU PEACE & HAPPINESS 🪔"
+                cardBg: "rgba(30, 18, 5, 0.8)", intro: "Sending you heartfelt festive wishes wrapped in joy, light, and blessings! 🪔✨",
+                shayaris: ["Is tyohar par aapke ghar khushiyon ki roshni ho! 🪔"],
+                question: "Ready to celebrate this festival together? 🎉", yesText: "LETS CELEBRATE! 🪔",
+                success: "HAPPY CELEBRATIONS! ✨\nWishing you immense prosperity and peace! 🪔🎉", footer: "WISHING YOU PEACE & HAPPINESS 🪔"
             }
         };
 
         let currentOccasion = "valentine";
         let config = { 
-            occasion: "valentine",
-            pName: "My Special One", 
-            uPhone: "", 
-            msg1: "",
-            finalMsg: "",
-            bigQ: "",
-            yesBtnText: "",
-            successMsg: "",
+            occasion: "valentine", pName: "My Special One", uPhone: "", msg1: "", finalMsg: "", bigQ: "", yesBtnText: "", successMsg: "",
             memories: [
-                {img: "https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=600", date: "Special Moment", cap: "Where the story began..."},
-                {img: "https://images.unsplash.com/photo-1516589174184-c68526671ee6?w=600", date: "Always", cap: "Moments we will cherish forever."}
+                {img: fallbackPhotos[0], date: "Special Moment", cap: "Where the story began..."},
+                {img: fallbackPhotos[1], date: "Always", cap: "Moments we will cherish forever."}
             ]
         };
 
@@ -807,12 +399,8 @@
             applyTheme(occKey);
         }
 
-        function base64ToUtf8(str) {
-            return decodeURIComponent(Array.prototype.map.call(atob(str), c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)).join(''));
-        }
-        function utf8ToBase64(str) {
-            return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, (_, p1) => String.fromCharCode('0x' + p1)));
-        }
+        function base64ToUtf8(str) { return decodeURIComponent(Array.prototype.map.call(atob(str), c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)).join('')); }
+        function utf8ToBase64(str) { return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, (_, p1) => String.fromCharCode('0x' + p1))); }
 
         window.onload = () => {
             const params = new URLSearchParams(window.location.search);
@@ -825,12 +413,8 @@
                         config.pName = parsed.n || "My Special One";
                         config.uPhone = parsed.p || "";
                         config.memories = (parsed.m || []).map(arr => ({ img: arr[0], date: arr[1], cap: arr[2] }));
-                    } else {
-                        config = { ...config, ...parsed };
-                    }
-                } catch(e) {
-                    console.warn("Using default story");
-                }
+                    } else { config = { ...config, ...parsed }; }
+                } catch(e) { console.warn("Using default story"); }
             }
 
             currentOccasion = config.occasion || 'valentine';
@@ -849,16 +433,8 @@
         const musicBtn = document.getElementById('music-btn');
         const eqStatus = document.getElementById('eq-status');
         function toggleAudio() {
-            if (audio.paused) {
-                audio.play().then(() => {
-                    musicBtn.classList.remove('eq-paused');
-                    eqStatus.innerText = "PLAYING";
-                }).catch(() => {});
-            } else {
-                audio.pause();
-                musicBtn.classList.add('eq-paused');
-                eqStatus.innerText = "PAUSED";
-            }
+            if (audio.paused) { audio.play().then(() => { musicBtn.classList.remove('eq-paused'); eqStatus.innerText = "PLAYING"; }).catch(() => {}); }
+            else { audio.pause(); musicBtn.classList.add('eq-paused'); eqStatus.innerText = "PAUSED"; }
         }
 
         function openSetup() { 
@@ -879,12 +455,12 @@
             if(container.children.length >= 5) { alert("Maximum 5 memories allowed!"); return; }
             const row = document.createElement('div');
             row.className = "memory-row-card";
-            const currentImg = img || "https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=600";
+            const currentImg = img || fallbackPhotos[0];
             
             row.innerHTML = `
-                <button onclick="this.parentElement.remove()" style="position:absolute; top:8px; right:10px; background:none; border:none; color:#ef4444; font-weight:700; cursor:pointer; font-size:0.75rem;">✕ Remove</button>
+                <button onclick="this.parentElement.remove()" style="position:absolute; top:8px; right:10px; background:none; border:none; color:#ef4444; font-weight:700; cursor:pointer;">✕ Remove</button>
                 <div class="thumb-preview-box">
-                    <img src="${currentImg}" class="thumb-img">
+                    <img src="${currentImg}" class="thumb-img" onerror="this.src='${fallbackPhotos[0]}'">
                     <div style="flex:1;">
                         <div style="display:flex; gap:8px; align-items:center; margin-bottom:6px;">
                             <label class="gallery-upload-btn">
@@ -893,11 +469,11 @@
                             </label>
                             <span class="upload-status" style="font-size:0.75rem; color:#64748b; font-weight:600;"></span>
                         </div>
-                        <input type="text" class="photo-url" value="${img}" placeholder="Or paste direct image URL" oninput="updateThumb(this)">
+                        <input type="text" class="photo-url" value="${img}" placeholder="Or paste Postimage Direct Link" oninput="updateThumb(this)">
                     </div>
                 </div>
                 <div style="display:flex; gap:8px;">
-                    <input type="text" class="photo-date" value="${date}" placeholder="Date / Tag (e.g. 2024)" style="width:35%;">
+                    <input type="text" class="photo-date" value="${date}" placeholder="Date / Tag" style="width:35%;">
                     <input type="text" class="photo-cap" value="${cap}" placeholder="Romantic Caption" style="width:65%;">
                 </div>`;
             container.appendChild(row);
@@ -908,118 +484,59 @@
             if(input.value.trim()) thumb.src = input.value.trim();
         }
 
-        // Ultra-Efficient Image Resizer & Compressor
-        function compressPhoto(file) {
-            return new Promise((resolve) => {
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                    const img = new Image();
-                    img.onload = () => {
-                        const canvas = document.createElement('canvas');
-                        let w = img.width, h = img.height;
-                        const maxDim = 800; // Optimal for mobile screens
-                        if (w > h && w > maxDim) {
-                            h = Math.round((h * maxDim) / w);
-                            w = maxDim;
-                        } else if (h > maxDim) {
-                            w = Math.round((w * maxDim) / h);
-                            h = maxDim;
-                        }
-                        canvas.width = w;
-                        canvas.height = h;
-                        const ctx = canvas.getContext('2d');
-                        ctx.drawImage(img, 0, 0, w, h);
-                        // High quality, low byte size
-                        const dataUrl = canvas.toDataURL('image/jpeg', 0.78);
-                        resolve(dataUrl);
-                    };
-                    img.src = e.target.result;
-                };
-                reader.readAsDataURL(file);
-            });
-        }
-
-        // Permanent Image Engine with Fail-Proof Fallback
+        // Direct Browser CORS Upload Engine via Imgur API
         async function handleGalleryUpload(input) {
             const file = input.files[0];
             if (!file) return;
-
-            const validMimes = ['image/jpeg', 'image/png', 'image/webp', 'image/jpg'];
-            if (!validMimes.includes(file.type) && !file.type.startsWith('image/')) {
-                alert("⚠️ सिर्फ Photos (JPG, PNG, WEBP) चुनी जा सकती हैं!");
-                input.value = "";
-                return;
-            }
 
             const card = input.closest('.memory-row-card');
             const thumb = card.querySelector('.thumb-img');
             const urlInput = card.querySelector('.photo-url');
             const statusSpan = card.querySelector('.upload-status');
 
-            statusSpan.innerText = "Processing... ⏳";
+            // Show instant preview
+            const reader = new FileReader();
+            reader.onload = (e) => thumb.src = e.target.result;
+            reader.readAsDataURL(file);
+
+            statusSpan.innerText = "Uploading to Cloud... ⏳";
             statusSpan.style.color = "var(--accent)";
 
             try {
-                // Step 1: Compress instantly on client-side
-                const compressedDataUrl = await compressPhoto(file);
-                
-                // Show instant permanent preview
-                thumb.src = compressedDataUrl;
-                urlInput.value = compressedDataUrl;
-
-                // Step 2: Try uploading to Cloudinary Unsigned CDN for a permanent direct link
-                statusSpan.innerText = "Uploading CDN... ⏳";
-                
+                // Official Imgur Anonymous Direct Upload (CORS Enabled)
                 const formData = new FormData();
-                formData.append('file', compressedDataUrl);
-                formData.append('upload_preset', 'story_upload'); // Public preset
-                
-                try {
-                    const res = await fetch('https://api.cloudinary.com/v1_1/demo/image/upload', {
-                        method: 'POST',
-                        body: formData
-                    });
-                    const json = await res.json();
-                    if (json && json.secure_url) {
-                        urlInput.value = json.secure_url;
-                        thumb.src = json.secure_url;
-                        statusSpan.innerText = "Saved to Cloud! ✅";
-                        statusSpan.style.color = "#10b981";
-                        return;
-                    }
-                } catch(netErr) {
-                    console.log("Cloud CDN skipped, using direct embedded data");
+                formData.append('image', file);
+
+                const res = await fetch('https://api.imgur.com/3/image', {
+                    method: 'POST',
+                    headers: { 'Authorization': 'Client-ID 546c25a59c58ad7' },
+                    body: formData
+                });
+
+                const data = await res.json();
+                if (data.success && data.data && data.data.link) {
+                    const permanentUrl = data.data.link;
+                    urlInput.value = permanentUrl;
+                    thumb.src = permanentUrl;
+                    statusSpan.innerText = "Uploaded Permanently! ✅";
+                    statusSpan.style.color = "#10b981";
+                    return;
                 }
-
-                // Step 3: If external CDN fails, keep the embedded compressed image (NEVER FAILS, NEVER EXPIRES!)
-                statusSpan.innerText = "Saved Locally! ✅";
-                statusSpan.style.color = "#10b981";
-
+                throw new Error("Imgur upload failed");
             } catch (err) {
-                console.error(err);
-                statusSpan.innerText = "Error. Paste link";
+                console.warn(err);
+                statusSpan.innerHTML = "Upload failed. Please upload on <a href='https://postimages.org' target='_blank' style='color:var(--accent); font-weight:bold;'>Postimages.org</a> and paste the Direct Link.";
                 statusSpan.style.color = "#ef4444";
             }
         }
 
-        // Shortener using is.gd (JSONP)
         function shortenUrl(longUrl) {
             return new Promise((resolve) => {
-                // If URL has direct data URL (too long for is.gd), fallback cleanly to long URL
-                if (longUrl.length > 3500) {
-                    resolve(longUrl);
-                    return;
-                }
-
                 const cbName = 'isgd_cb_' + Math.floor(Math.random() * 10000000);
                 const script = document.createElement('script');
                 let timedOut = false;
 
-                const timer = setTimeout(() => {
-                    timedOut = true;
-                    cleanup();
-                    resolve(longUrl);
-                }, 3500);
+                const timer = setTimeout(() => { timedOut = true; cleanup(); resolve(longUrl); }, 3500);
 
                 function cleanup() {
                     clearTimeout(timer);
@@ -1029,11 +546,8 @@
 
                 window[cbName] = function(res) {
                     cleanup();
-                    if (!timedOut && res && res.shorturl) {
-                        resolve(res.shorturl);
-                    } else {
-                        resolve(longUrl);
-                    }
+                    if (!timedOut && res && res.shorturl) { resolve(res.shorturl); } 
+                    else { resolve(longUrl); }
                 };
 
                 script.onerror = () => { cleanup(); resolve(longUrl); };
@@ -1069,7 +583,7 @@
                 if(val) {
                     customMemories.push({
                         img: val,
-                        date: dateInputs[i].value.trim() || `Slide ${i+1}`,
+                        date: dateInputs[i].value.trim() || `Moment ${i+1}`,
                         cap: capInputs[i].value.trim() || "✨"
                     });
                 }
@@ -1104,24 +618,8 @@
             setTimeout(() => t.classList.remove('show'), 2500);
         }
 
-        function copyLink() {
-            navigator.clipboard.writeText(currentShortUrl);
-            showToast("Short Link Copied! 📋");
-        }
-        function shareWA() {
-            window.open("https://api.whatsapp.com/send?text=" + encodeURIComponent("I made a special surprise story for you! Open it here: " + currentShortUrl));
-        }
-        function shareNative() {
-            if (navigator.share) {
-                navigator.share({
-                    title: "A Special Surprise For You ✨",
-                    text: "Open this special link I made for you:",
-                    url: currentShortUrl
-                }).catch(() => {});
-            } else {
-                copyLink();
-            }
-        }
+        function copyLink() { navigator.clipboard.writeText(currentShortUrl); showToast("Short Link Copied! 📋"); }
+        function shareWA() { window.open("https://api.whatsapp.com/send?text=" + encodeURIComponent("I made a special surprise story for you! Open it here: " + currentShortUrl)); }
 
         let currentTypeTimeout = null;
         let activeFullText = "";
@@ -1143,9 +641,7 @@
                     activeElem.innerHTML += text.charAt(i) === '\n' ? '<br>' : text.charAt(i);
                     i++;
                     currentTypeTimeout = setTimeout(typing, speed);
-                } else {
-                    finishTypewriter();
-                }
+                } else { finishTypewriter(); }
             }
             typing();
         }
@@ -1160,18 +656,11 @@
         }
 
         function skipTypewriter() {
-            if(currentTypeTimeout) {
-                clearTimeout(currentTypeTimeout);
-                finishTypewriter();
-            }
+            if(currentTypeTimeout) { clearTimeout(currentTypeTimeout); finishTypewriter(); }
         }
 
         function showIntro() {
-            audio.play().then(() => {
-                musicBtn.classList.remove('eq-paused');
-                eqStatus.innerText = "PLAYING";
-            }).catch(() => {});
-
+            audio.play().then(() => { musicBtn.classList.remove('eq-paused'); eqStatus.innerText = "PLAYING"; }).catch(() => {});
             document.getElementById('front-page').style.display = 'none';
             document.getElementById('message-screen').style.display = 'block';
             typeWriter(config.msg1, "intro-type", "btn-intro");
@@ -1190,27 +679,16 @@
             document.getElementById('date-overlay').innerText = cur.date;
             
             const imgEl = document.getElementById('memory-img');
-            imgEl.style.opacity = '0';
-            imgEl.style.transform = 'scale(0.96)';
-            
             imgEl.src = cur.img;
-            imgEl.onload = () => {
-                imgEl.style.opacity = '1';
-                imgEl.style.transform = 'scale(1)';
-            };
-            // Fallback in case of network issue
-            imgEl.onerror = () => {
-                imgEl.style.opacity = '1';
-            };
+            imgEl.onerror = () => { imgEl.src = fallbackPhotos[mIdx % 2]; };
 
             typeWriter(cur.cap, "mem-type", "btn-mem", 32);
         }
 
         function nextMem() {
             mIdx++;
-            if (mIdx < config.memories.length) {
-                loadMem();
-            } else {
+            if (mIdx < config.memories.length) { loadMem(); } 
+            else {
                 document.getElementById('memories-screen').style.display = 'none';
                 document.getElementById('final-letter').style.display = 'block';
                 typeWriter(config.finalMsg, "letter-type", "btn-letter", 40);
@@ -1220,12 +698,8 @@
         function showProposal() {
             document.getElementById('final-letter').style.display = 'none';
             document.getElementById('proposal-screen').style.display = 'block';
-            
             const b = document.getElementById('noBtn');
-            b.style.position = 'relative';
-            b.style.left = 'auto';
-            b.style.top = 'auto';
-
+            b.style.position = 'relative'; b.style.left = 'auto'; b.style.top = 'auto';
             typeWriter(config.bigQ, "proposal-type", "proposal-btns", 45);
         }
 
@@ -1237,13 +711,11 @@
             
             const btnW = b.offsetWidth || 100;
             const btnH = b.offsetHeight || 44;
-            
             const topBoundary = 80;
             const bottomBoundary = 90;
             
             const minX = 20;
             const maxX = Math.max(minX, window.innerWidth - btnW - 25);
-            
             const minY = topBoundary;
             const maxY = Math.max(minY, window.innerHeight - bottomBoundary - btnH);
             
@@ -1258,11 +730,8 @@
             triggerConfetti();
             document.getElementById('proposal-screen').style.display = 'none';
             document.getElementById('success-screen').style.display = 'block';
-            if(config.uPhone) {
-                document.getElementById('call-link').href = `tel:${config.uPhone}`;
-            } else {
-                document.getElementById('call-link').style.display = 'none';
-            }
+            if(config.uPhone) { document.getElementById('call-link').href = `tel:${config.uPhone}`; } 
+            else { document.getElementById('call-link').style.display = 'none'; }
             typeWriter(config.successMsg, "success-type", "final-actions", 35);
         }
 
@@ -1289,11 +758,9 @@
 
             for (let i = 0; i < 140; i++) {
                 particles.push({
-                    x: canvas.width / 2,
-                    y: canvas.height / 2,
+                    x: canvas.width / 2, y: canvas.height / 2,
                     r: Math.random() * 6 + 3,
-                    dx: (Math.random() - 0.5) * 18,
-                    dy: (Math.random() - 0.5) * 18 - 4,
+                    dx: (Math.random() - 0.5) * 18, dy: (Math.random() - 0.5) * 18 - 4,
                     color: colors[Math.floor(Math.random() * colors.length)],
                     life: 110
                 });
@@ -1304,16 +771,9 @@
                 let alive = false;
                 particles.forEach(p => {
                     if (p.life > 0) {
-                        alive = true;
-                        p.x += p.dx;
-                        p.y += p.dy;
-                        p.dy += 0.22;
-                        p.life--;
-                        ctx.beginPath();
-                        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-                        ctx.fillStyle = p.color;
-                        ctx.globalAlpha = p.life / 110;
-                        ctx.fill();
+                        alive = true; p.x += p.dx; p.y += p.dy; p.dy += 0.22; p.life--;
+                        ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                        ctx.fillStyle = p.color; ctx.globalAlpha = p.life / 110; ctx.fill();
                     }
                 });
                 if (alive) requestAnimationFrame(animate);
